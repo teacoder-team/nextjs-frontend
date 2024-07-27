@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { FaDiscord, FaGithub, FaYandex } from 'react-icons/fa6'
 import { FcGoogle } from 'react-icons/fc'
 
-import { Button } from '@/components/ui/common/Button'
+import { Button } from '@/components/ui/common/button/Button'
 import {
 	Card,
 	CardContent,
@@ -13,7 +13,7 @@ import {
 	CardFooter,
 	CardHeader,
 	CardTitle
-} from '@/components/ui/common/Card'
+} from '@/components/ui/common/card/Card'
 
 import { API_URL, SERVER_URL } from '@/config/api.config'
 import { PUBLIC_URL } from '@/config/url.config'

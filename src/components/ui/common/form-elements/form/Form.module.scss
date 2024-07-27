@@ -1,0 +1,15 @@
+.item {
+	@apply space-y-2;
+
+	> .error {
+		@apply text-destructive;
+	}
+
+	> .description {
+		@apply text-sm text-muted-foreground;
+	}
+
+	> .message {
+		@apply text-sm font-medium text-destructive;
+	}
+}
