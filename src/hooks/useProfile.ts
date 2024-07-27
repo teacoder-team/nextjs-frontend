@@ -5,6 +5,8 @@ import { saveTokenStorage } from '@/services/auth/auth.helper'
 import authService from '@/services/auth/auth.service'
 import userService from '@/services/user.service'
 
+import { EnumRole } from '@/types/user.interface'
+
 export function useProfile() {
 	const { data: user, isLoading } = useQuery({
 		queryKey: ['profile'],
@@ -27,6 +29,7 @@ export function useProfile() {
 
 	return {
 		user,
-		isLoading
+		isLoading,
+		isAdmin: user?.role === EnumRole.Admin
 	}
 }

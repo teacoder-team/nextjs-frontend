@@ -1,11 +1,28 @@
-export enum UserRole {
-	User = 'USER',
+import type { IBase } from './root.interface'
+
+export enum EnumAuthProvider {
+	Google = 'GOOGLE',
+	Github = 'GITHUB',
+	Yandex = 'YANDEX',
+	Discord = 'DISCORD'
+}
+
+export enum EnumRole {
+	Student = 'STUDENT',
 	Moderator = 'MODERATOR',
 	Admin = 'ADMIN'
 }
 
-export interface IUser {
+export interface IProfile {
 	id: number
+	name: string
+	picture: string
+	points: number
+	provider: EnumAuthProvider
+}
+
+export interface IUser extends IBase {
 	email: string
-	role: UserRole
+	role: EnumRole
+	profile: IProfile
 }

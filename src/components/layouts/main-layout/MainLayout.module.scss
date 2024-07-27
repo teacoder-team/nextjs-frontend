@@ -1,0 +1,15 @@
+.layout {
+	@apply h-full;
+
+	> .header {
+		@apply fixed inset-y-0 z-[50] h-[77px] w-full;
+	}
+
+	> .sidebar {
+		@apply fixed inset-y-0 z-[49] hidden h-full w-64 flex-col pt-[77px] md:flex;
+	}
+
+	> main {
+		@apply h-full pt-[77px] md:pl-64;
+	}
+}
