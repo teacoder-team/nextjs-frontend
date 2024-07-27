@@ -1,7 +1,7 @@
 {
   "name": "teacoder-front",
   "description": "This project is the frontend for the TeaCoder educational platform, designed to provide an engaging and interactive learning experience in web development. Built with Next.js, it leverages modern web technologies to ensure optimal performance, SEO friendliness, and a seamless user interface.",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": true,
   "scripts": {
     "dev": "next dev",
