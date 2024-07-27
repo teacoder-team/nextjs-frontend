@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import '@/assets/styles/globals.scss'
 
 import { SITE_DESCRIPTION, SITE_NAME } from '@/constants/seo.constants'
+import { Providers } from './providers'
 
 export const metadata: Metadata = {
 	title: {
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='ru'>
-			<body className={GeistSans.variable}>{children}</body>
+			<body className={GeistSans.variable}>
+				<Providers>{children}</Providers>
+			</body>
 		</html>
 	)
 }
