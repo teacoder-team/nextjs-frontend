@@ -4,5 +4,6 @@ export const API_URL = {
 	root: (url = '') => `${url ? url : ''}`,
 
 	auth: (url = '') => API_URL.root(`/auth${url}`),
-	users: (url = '') => API_URL.root(`/users${url}`)
+	users: (url = '') => API_URL.root(`/users${url}`),
+	courses: (url = '') => API_URL.root(`/courses${url}`)
 }
