@@ -4,31 +4,38 @@ import type { Metadata } from 'next'
 import '@/assets/styles/globals.scss'
 
 import { APP_URL } from '@/config/url.config'
-import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME, SITE_TITLE } from '@/constants/seo.constants'
-import { Providers } from './providers'
+
+import {
+	SITE_DESCRIPTION,
+	SITE_KEYWORDS,
+	SITE_NAME,
+	SITE_TITLE
+} from '@/constants/seo.constants'
+
+import { MainProvider } from '@/providers/MainProvider'
 
 export const metadata: Metadata = {
 	title: {
-		absolute: SITE_NAME,
-		template: `%s | ${SITE_NAME}`
+		absolute: SITE_NAME, // Полное название сайта
+		template: `%s | ${SITE_NAME}` // Шаблон для заголовка страницы
 	},
-	description: SITE_DESCRIPTION,
-	metadataBase: new URL(APP_URL),
-	applicationName: SITE_TITLE,
+	description: SITE_DESCRIPTION, // Описание сайта
+	metadataBase: new URL(APP_URL), // Базовый URL для метаданных
+	applicationName: SITE_TITLE, // Название приложения
 	authors: [
 		{
-			url: new URL('https://github.com/teacoder-team'),
-			name: 'TeaCoder Team'
+			url: new URL('https://github.com/teacoder-team'), // URL автора
+			name: 'TeaCoder Team' // Имя автора
 		}
 	],
-	keywords: SITE_KEYWORDS,
-	generator: 'Next.js',
-	creator: 'TeaCoder Team',
-	publisher: 'TeaCoder Team',
+	keywords: SITE_KEYWORDS, // Ключевые слова для SEO
+	generator: 'Next.js', // Генератор сайта
+	creator: 'TeaCoder Team', // Создатель сайта
+	publisher: 'TeaCoder Team', // Издатель сайта
 	icons: {
-		icon: '/images/favicon.ico',
-		shortcut: '/images/favicon.ico',
-		apple: '/touch-icons/192x192.png',
+		icon: '/images/favicon.ico', // Иконка сайта
+		shortcut: '/images/favicon.ico', // Иконка для ярлыка
+		apple: '/touch-icons/192x192.png', // Иконка для устройств Apple
 		other: {
 			rel: 'touch-icons',
 			url: '/touch-icons/192x192.png',
@@ -36,31 +43,31 @@ export const metadata: Metadata = {
 			type: 'image/png'
 		}
 	},
-	manifest: '/manifest.webmanifest',
+	manifest: '/manifest.webmanifest', // Путь к манифесту PWA
 	openGraph: {
-		title: SITE_TITLE,
-		description: SITE_DESCRIPTION,
-		type: 'website',
-		emails: ['help@teacoder.ru'],
-		siteName: SITE_NAME,
-		locale: 'ru_RU',
+		title: SITE_TITLE, // Заголовок для Open Graph
+		description: SITE_DESCRIPTION, // Описание для Open Graph
+		type: 'website', // Тип контента
+		emails: ['help@teacoder.ru'], // Контактные email
+		siteName: SITE_NAME, // Название сайта
+		locale: 'ru_RU', // Локализация
 		images: [
 			{
-				url: new URL(APP_URL + '/touch-icons/512x512.png'),
-				width: 512,
-				height: 512,
-				alt: SITE_TITLE
+				url: new URL(APP_URL + '/touch-icons/512x512.png'), // URL изображения
+				width: 512, // Ширина изображения
+				height: 512, // Высота изображения
+				alt: SITE_TITLE // Альтернативный текст для изображения
 			}
 		],
-		url: APP_URL
+		url: APP_URL // URL сайта
 	},
 	twitter: {
-		card: 'summary_large_image',
-		title: SITE_TITLE,
-		description: SITE_DESCRIPTION,
+		card: 'summary_large_image', // Тип карточки Twitter
+		title: SITE_TITLE, // Заголовок для Twitter
+		description: SITE_DESCRIPTION, // Описание для Twitter
 		images: [
 			{
-				url: new URL(APP_URL + '/touch-icons/512x512.png'),
+				url: new URL(APP_URL + '/touch-icons/512x512.png'), // URL изображения для Twitter
 				width: 512,
 				height: 512,
 				alt: SITE_TITLE
@@ -68,14 +75,22 @@ export const metadata: Metadata = {
 		]
 	},
 	verification: {
-		google: '666',
-		yandex: '666'
+		google: process.env.GOOGLE_TOKEN_VERIFICATION, // Токен верификации Google
+		yandex: process.env.YANDEX_TOKEN_VERIFICATION // Токен верификации Яндекс
 	},
 	formatDetection: {
-		telephone: false
-	},
+		telephone: false // Отключение автоматического определения телефонных номеров
+	}
 }
 
+/**
+ * Компонент RootLayout определяет корневую структуру приложения.
+ * Он оборачивает дочерние элементы в провайдер MainProvider
+ * и задает язык страницы.
+ *
+ * @param {Readonly<{ children: React.ReactNode }>} props - Дочерние элементы для рендеринга.
+ * @returns {JSX.Element} Корневой элемент приложения.
+ */
 export default function RootLayout({
 	children
 }: Readonly<{
@@ -84,7 +99,7 @@ export default function RootLayout({
 	return (
 		<html lang='ru'>
 			<body className={GeistSans.variable}>
-				<Providers>{children}</Providers>
+				<MainProvider>{children}</MainProvider>
 			</body>
 		</html>
 	)

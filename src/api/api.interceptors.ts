@@ -7,16 +7,28 @@ import authService from '@/services/auth/auth.service'
 
 import { errorCatch, getContentType } from './api.helper'
 
+/**
+ * Конфигурация по умолчанию для экземпляров axios, включая
+ * базовый URL, заголовки и настройки для работы с куками.
+ */
 const axiosOptions: CreateAxiosDefaults = {
 	baseURL: SERVER_URL,
 	headers: getContentType(),
 	withCredentials: true
 }
 
+/**
+ * Экземпляр axios с базовыми настройками для обычных запросов.
+ */
 export const axiosClassic = axios.create(axiosOptions)
 
+/**
+ * Экземпляр axios с базовыми настройками, который будет использоваться
+ * для авторизованных запросов.
+ */
 export const instance = axios.create(axiosOptions)
 
+// Интерсептор для обработки запросов, добавляющий accessToken в заголовки.
 instance.interceptors.request.use(config => {
 	const accessToken = getAccessToken()
 
@@ -26,6 +38,7 @@ instance.interceptors.request.use(config => {
 	return config
 })
 
+// Интерсептор для обработки ответов, который управляет ошибками и обновляет токены при необходимости.
 instance.interceptors.response.use(
 	config => config,
 	async error => {

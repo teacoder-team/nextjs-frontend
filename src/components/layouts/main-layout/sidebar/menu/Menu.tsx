@@ -9,6 +9,14 @@ import { MenuItem } from './MenuItem'
 import { adminMenu } from './data/admin.menu'
 import { userMenu } from './data/user.menu'
 
+/**
+ * Компонент Menu отображает список пунктов меню в зависимости
+ * от текущего URL-адреса. Он определяет, следует ли отображать
+ * меню администратора или меню пользователя, основываясь на
+ * текущем маршруте.
+ *
+ * @returns {JSX.Element} Отрендеренный компонент меню.
+ */
 export function Menu() {
 	const pathname = usePathname()
 

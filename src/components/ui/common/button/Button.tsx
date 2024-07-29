@@ -36,6 +36,14 @@ export interface ButtonProps
 	asChild?: boolean
 }
 
+/**
+ * Компонент Button представляет собой настраиваемую кнопку
+ * с поддержкой различных стилей и размеров.
+ *
+ * @param {ButtonProps} props - Свойства кнопки, включая классы,
+ * варианты и размеры.
+ * @returns {JSX.Element} Элемент кнопки или другой компонент.
+ */
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 	({ className, variant, size, asChild = false, ...props }, ref) => {
 		const Comp = asChild ? Slot : 'button'

@@ -20,6 +20,12 @@ import { PUBLIC_URL } from '@/config/url.config'
 
 import styles from './Auth.module.scss'
 
+/**
+ * Компонент Auth отображает форму авторизации с кнопками для входа
+ * через различные провайдеры, такие как Google, GitHub, Яндекс и Discord.
+ *
+ * @returns {JSX.Element} Элемент формы авторизации.
+ */
 export function Auth() {
 	const router = useRouter()
 

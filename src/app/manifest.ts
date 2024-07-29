@@ -8,6 +8,13 @@ import {
 	SITE_TITLE
 } from '@/constants/seo.constants'
 
+/**
+ * Функция manifest возвращает объект манифеста PWA, который
+ * определяет различные параметры для приложения, такие как
+ * название, описание, цвета, иконки и другие настройки.
+ *
+ * @returns {MetadataRoute.Manifest} Объект манифеста PWA.
+ */
 export default function manifest(): MetadataRoute.Manifest {
 	return {
 		name: SITE_TITLE,

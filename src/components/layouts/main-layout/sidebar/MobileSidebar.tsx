@@ -8,6 +8,13 @@ import {
 
 import { Sidebar } from './Sidebar'
 
+/**
+ * Компонент MobileSidebar отображает боковую панель,
+ * адаптированную для мобильных устройств, с использованием
+ * всплывающего окна.
+ *
+ * @returns {JSX.Element} Всплывающее окно с боковой панелью.
+ */
 export function MobileSidebar() {
 	return (
 		<Sheet>

@@ -8,6 +8,13 @@ import { PUBLIC_URL } from '@/config/url.config'
 
 import authService from '@/services/auth/auth.service'
 
+/**
+ * Компонент LogoutButton отображает кнопку выхода из системы
+ * в меню пользователя. При клике на кнопку происходит выход
+ * пользователя и перенаправление на страницу авторизации.
+ *
+ * @returns {JSX.Element} Элемент кнопки выхода.
+ */
 export function LogoutButton() {
 	const router = useRouter()
 

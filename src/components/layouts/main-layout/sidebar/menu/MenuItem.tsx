@@ -10,6 +10,13 @@ interface MenuItemProps {
 	route: IMenuItem
 }
 
+/**
+ * Компонент MenuItem представляет собой отдельный пункт меню.
+ * Он отображает значок и метку и подсвечивает активную ссылку.
+ *
+ * @param {MenuItemProps} props - Свойства для пункта меню, включая маршрут.
+ * @returns {JSX.Element} Отрендеренный пункт меню.
+ */
 export function MenuItem({ route }: MenuItemProps) {
 	const pathname = usePathname()
 

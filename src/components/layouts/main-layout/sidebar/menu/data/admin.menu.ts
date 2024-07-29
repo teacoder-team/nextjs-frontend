@@ -4,6 +4,9 @@ import { ADMIN_URL } from '@/config/url.config'
 
 import type { IMenuItem } from '../menu.interface'
 
+/**
+ * Массив adminMenu определяет элементы меню, доступные для администраторов.
+ */
 export const adminMenu: IMenuItem[] = [
 	{
 		icon: BarChart,

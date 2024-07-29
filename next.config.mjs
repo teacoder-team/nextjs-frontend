@@ -5,6 +5,8 @@ const nextConfig = {
 		APP_URL: process.env.APP_URL,
 		APP_DOMAIN: process.env.APP_DOMAIN,
 		SERVER_URL: process.env.SERVER_URL,
+		GOOGLE_TOKEN_VERIFICATION: process.env.GOOGLE_TOKEN_VERIFICATION,
+		YANDEX_TOKEN_VERIFICATION: process.env.YANDEX_TOKEN_VERIFICATION,
 	},
 	images: {
 		remotePatterns: [

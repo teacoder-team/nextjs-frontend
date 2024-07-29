@@ -24,6 +24,13 @@ const iconVariants = cva(styles.base, {
 
 interface LoaderProps extends VariantProps<typeof iconVariants> {}
 
+/**
+ * Компонент Loader отображает индикатор загрузки с возможностью 
+ * настройки варианта и размера.
+ * 
+ * @param {LoaderProps} props - Свойства компонента, включая вариант и размер.
+ * @returns {JSX.Element} Элемент LoaderCircle с применёнными стилями.
+ */
 export const Loader = ({ variant, size }: LoaderProps) => {
 	return <LoaderCircle className={cn(iconVariants({ variant, size }))} />
 }

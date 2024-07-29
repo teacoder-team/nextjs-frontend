@@ -2,7 +2,12 @@
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import { Check, ChevronRight, Circle } from 'lucide-react'
-import * as React from 'react'
+import {
+	ComponentPropsWithoutRef,
+	ElementRef,
+	HTMLAttributes,
+	forwardRef
+} from 'react'
 
 import { cn } from '@/utils/clsx'
 
@@ -18,9 +23,15 @@ const DropdownMenuSub = DropdownMenuPrimitive.Sub
 
 const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup
 
-const DropdownMenuSubTrigger = React.forwardRef<
-	React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
-	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
+/**
+ * Компонент DropdownMenuSubTrigger для триггеров подменю.
+ *
+ * @param {ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & { inset?: boolean }} props - Свойства триггера подменю.
+ * @returns {JSX.Element} Компонент SubTrigger.
+ */
+const DropdownMenuSubTrigger = forwardRef<
+	ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
+	ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
 		inset?: boolean
 	}
 >(({ className, inset, children, ...props }, ref) => (
@@ -40,9 +51,15 @@ const DropdownMenuSubTrigger = React.forwardRef<
 DropdownMenuSubTrigger.displayName =
 	DropdownMenuPrimitive.SubTrigger.displayName
 
-const DropdownMenuSubContent = React.forwardRef<
-	React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
-	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>
+/**
+ * Компонент DropdownMenuSubContent для содержимого подменю.
+ *
+ * @param {ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>} props - Свойства содержимого подменю.
+ * @returns {JSX.Element} Компонент SubContent.
+ */
+const DropdownMenuSubContent = forwardRef<
+	ElementRef<typeof DropdownMenuPrimitive.SubContent>,
+	ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>
 >(({ className, ...props }, ref) => (
 	<DropdownMenuPrimitive.SubContent
 		ref={ref}
@@ -56,9 +73,15 @@ const DropdownMenuSubContent = React.forwardRef<
 DropdownMenuSubContent.displayName =
 	DropdownMenuPrimitive.SubContent.displayName
 
-const DropdownMenuContent = React.forwardRef<
-	React.ElementRef<typeof DropdownMenuPrimitive.Content>,
-	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
+/**
+ * Компонент DropdownMenuContent для содержимого выпадающего меню.
+ *
+ * @param {ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>} props - Свойства содержимого выпадающего меню.
+ * @returns {JSX.Element} Компонент Content.
+ */
+const DropdownMenuContent = forwardRef<
+	ElementRef<typeof DropdownMenuPrimitive.Content>,
+	ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
 >(({ className, sideOffset = 4, ...props }, ref) => (
 	<DropdownMenuPrimitive.Portal>
 		<DropdownMenuPrimitive.Content
@@ -74,9 +97,15 @@ const DropdownMenuContent = React.forwardRef<
 ))
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName
 
-const DropdownMenuItem = React.forwardRef<
-	React.ElementRef<typeof DropdownMenuPrimitive.Item>,
-	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
+/**
+ * Компонент DropdownMenuItem для элементов выпадающего меню.
+ *
+ * @param {ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & { inset?: boolean }} props - Свойства элемента выпадающего меню.
+ * @returns {JSX.Element} Компонент Item.
+ */
+const DropdownMenuItem = forwardRef<
+	ElementRef<typeof DropdownMenuPrimitive.Item>,
+	ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
 		inset?: boolean
 	}
 >(({ className, inset, ...props }, ref) => (
@@ -92,9 +121,15 @@ const DropdownMenuItem = React.forwardRef<
 ))
 DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName
 
-const DropdownMenuCheckboxItem = React.forwardRef<
-	React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
-	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>
+/**
+ * Компонент DropdownMenuCheckboxItem для элементов выпадающего меню с чекбоксом.
+ *
+ * @param {ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>} props - Свойства элемента чекбокса.
+ * @returns {JSX.Element} Компонент CheckboxItem.
+ */
+const DropdownMenuCheckboxItem = forwardRef<
+	ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
+	ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>
 >(({ className, children, checked, ...props }, ref) => (
 	<DropdownMenuPrimitive.CheckboxItem
 		ref={ref}
@@ -116,9 +151,15 @@ const DropdownMenuCheckboxItem = React.forwardRef<
 DropdownMenuCheckboxItem.displayName =
 	DropdownMenuPrimitive.CheckboxItem.displayName
 
-const DropdownMenuRadioItem = React.forwardRef<
-	React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
-	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>
+/**
+ * Компонент DropdownMenuRadioItem для элементов выпадающего меню с радио-кнопками.
+ *
+ * @param {ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>} props - Свойства элемента радио.
+ * @returns {JSX.Element} Компонент RadioItem.
+ */
+const DropdownMenuRadioItem = forwardRef<
+	ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
+	ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>
 >(({ className, children, ...props }, ref) => (
 	<DropdownMenuPrimitive.RadioItem
 		ref={ref}
@@ -138,9 +179,15 @@ const DropdownMenuRadioItem = React.forwardRef<
 ))
 DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName
 
-const DropdownMenuLabel = React.forwardRef<
-	React.ElementRef<typeof DropdownMenuPrimitive.Label>,
-	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
+/**
+ * Компонент DropdownMenuLabel для меток в выпадающем меню.
+ *
+ * @param {ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & { inset?: boolean }} props - Свойства метки.
+ * @returns {JSX.Element} Компонент Label.
+ */
+const DropdownMenuLabel = forwardRef<
+	ElementRef<typeof DropdownMenuPrimitive.Label>,
+	ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
 		inset?: boolean
 	}
 >(({ className, inset, ...props }, ref) => (
@@ -156,9 +203,15 @@ const DropdownMenuLabel = React.forwardRef<
 ))
 DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName
 
-const DropdownMenuSeparator = React.forwardRef<
-	React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
-	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
+/**
+ * Компонент DropdownMenuSeparator для разделителей в выпадающем меню.
+ *
+ * @param {ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>} props - Свойства разделителя.
+ * @returns {JSX.Element} Компонент Separator.
+ */
+const DropdownMenuSeparator = forwardRef<
+	ElementRef<typeof DropdownMenuPrimitive.Separator>,
+	ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
 >(({ className, ...props }, ref) => (
 	<DropdownMenuPrimitive.Separator
 		ref={ref}
@@ -168,10 +221,16 @@ const DropdownMenuSeparator = React.forwardRef<
 ))
 DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName
 
+/**
+ * Компонент DropdownMenuShortcut для отображения сочетаний клавиш.
+ *
+ * @param {HTMLAttributes<HTMLSpanElement>} props - Свойства сочетания клавиш.
+ * @returns {JSX.Element} Элемент span для сочетания клавиш.
+ */
 const DropdownMenuShortcut = ({
 	className,
 	...props
-}: React.HTMLAttributes<HTMLSpanElement>) => {
+}: HTMLAttributes<HTMLSpanElement>) => {
 	return (
 		<span
 			className={cn('ml-auto text-xs tracking-widest opacity-60', className)}

@@ -2,7 +2,7 @@
 
 import * as LabelPrimitive from '@radix-ui/react-label'
 import { type VariantProps, cva } from 'class-variance-authority'
-import * as React from 'react'
+import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
 import { cn } from '@/utils/clsx'
 
@@ -10,9 +10,16 @@ import styles from './Label.module.scss'
 
 const labelVariants = cva(styles.base)
 
-const Label = React.forwardRef<
-	React.ElementRef<typeof LabelPrimitive.Root>,
-	React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
+/**
+ * Компонент Label представляет собой текстовую метку для
+ * связанного элемента управления формы.
+ *
+ * @param {ComponentPropsWithoutRef<typeof LabelPrimitive.Root> & VariantProps<typeof labelVariants>} props - Свойства компонента.
+ * @returns {JSX.Element} Элемент метки с применёнными стилями.
+ */
+const Label = forwardRef<
+	ElementRef<typeof LabelPrimitive.Root>,
+	ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
 		VariantProps<typeof labelVariants>
 >(({ className, ...props }, ref) => (
 	<LabelPrimitive.Root

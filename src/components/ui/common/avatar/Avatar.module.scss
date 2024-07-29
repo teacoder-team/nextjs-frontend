@@ -1,5 +1,5 @@
 .avatar {
-	@apply relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full;
+	@apply relative flex h-10 w-10 shrink-0 cursor-pointer overflow-hidden rounded-full;
 
 	> .image {
 		@apply aspect-square h-full w-full;

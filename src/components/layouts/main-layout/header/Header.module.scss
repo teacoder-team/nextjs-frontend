@@ -16,4 +16,12 @@
 	> .search {
 		@apply ml-auto hidden lg:block;
 	}
+
+	.header_menu {
+		@apply ml-auto flex items-center gap-x-2;
+
+		.icon {
+			@apply mr-2 size-4;
+		}
+	}
 }

@@ -4,6 +4,10 @@ import { API_URL } from '@/config/api.config'
 
 import { removeFromStorage, saveTokenStorage } from './auth.helper'
 
+/**
+ * AuthService предоставляет методы для аутентификации пользователей.
+ * Он включает функции для получения новых токенов и выхода из системы.
+ */
 class AuthService {
 	async getNewTokens() {
 		const response = await axiosClassic.post<{ accessToken: string }>(
@@ -30,9 +34,7 @@ class AuthService {
 	}
 
 	async logout() {
-		const response = await axiosClassic.post<boolean>(
-			API_URL.auth('/auth/logout')
-		)
+		const response = await axiosClassic.post<boolean>(API_URL.auth('/logout'))
 
 		if (response.data) removeFromStorage()
 

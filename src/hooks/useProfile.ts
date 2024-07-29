@@ -7,6 +7,12 @@ import userService from '@/services/user.service'
 
 import { EnumRole } from '@/types/user.interface'
 
+/**
+ * Хук useProfile управляет загрузкой данных профиля пользователя
+ * и обновлением токенов аутентификации.
+ *
+ * @returns {Object} Объект с данными пользователя, статусом загрузки и информацией о том, является ли пользователь администратором.
+ */
 export function useProfile() {
 	const { data: user, isLoading } = useQuery({
 		queryKey: ['profile'],
