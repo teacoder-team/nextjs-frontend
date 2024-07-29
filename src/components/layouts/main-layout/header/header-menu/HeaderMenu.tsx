@@ -35,7 +35,7 @@ import { LogoutButton } from './LogoutButton'
 export function HeaderMenu() {
 	const { user, isAdmin, isLoading } = useProfile()
 
-	if (!user) return null
+	if (!user) return <Loader size='sm' />
 
 	return isLoading ? (
 		<Loader size='sm' />

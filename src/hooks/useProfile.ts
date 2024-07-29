@@ -16,7 +16,7 @@ import { EnumRole } from '@/types/user.interface'
 export function useProfile() {
 	const { data: user, isLoading } = useQuery({
 		queryKey: ['profile'],
-		queryFn: () => userService.profile(),
+		queryFn: () => userService.getProfile(),
 		refetchInterval: 1800000
 	})
 

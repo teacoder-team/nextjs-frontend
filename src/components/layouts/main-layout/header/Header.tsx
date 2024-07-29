@@ -33,7 +33,7 @@ export function Header() {
 				<SearchInput />
 			</div>
 			<div className={styles.header_menu}>
-				{accessToken && refreshToken ? (
+				{accessToken || refreshToken ? (
 					<HeaderMenu />
 				) : (
 					<Link href={PUBLIC_URL.auth()}>
