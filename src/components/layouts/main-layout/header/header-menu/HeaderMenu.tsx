@@ -16,7 +16,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger
 } from '@/components/ui/common/dropdown-menu/DropdownMenu'
-import { Loader } from '@/components/ui/common/loader/Loader'
+import { MinLoader } from '@/components/ui/loaders/MinLoader'
 
 import { ADMIN_URL, DASHBOARD_URL } from '@/config/url.config'
 
@@ -35,10 +35,10 @@ import { LogoutButton } from './LogoutButton'
 export function HeaderMenu() {
 	const { user, isAdmin, isLoading } = useProfile()
 
-	if (!user) return <Loader size='sm' />
+	if (!user) return <MinLoader />
 
 	return isLoading ? (
-		<Loader size='sm' />
+		<MinLoader />
 	) : (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>

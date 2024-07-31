@@ -1,5 +1,5 @@
-import { Loader } from '@/components/ui/common/loader/Loader'
 import { MainWrapper } from '@/components/ui/elements/main-wrapper/MainWrapper'
+import { MinLoader } from '@/components/ui/loaders/MinLoader'
 
 /**
  * Компонент Loading отображает индикатор загрузки во время
@@ -10,7 +10,7 @@ import { MainWrapper } from '@/components/ui/elements/main-wrapper/MainWrapper'
 export default function Loading() {
 	return (
 		<MainWrapper>
-			<Loader />
+			<MinLoader size='large' />
 		</MainWrapper>
 	)
 }

@@ -1,0 +1,11 @@
+.base {
+	@apply animate-spin;
+
+	&.default {
+		@apply size-6;
+	}
+
+	&.large {
+		@apply size-9;
+	}
+}

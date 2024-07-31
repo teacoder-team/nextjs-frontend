@@ -11,7 +11,7 @@ export const userMenu: IMenuItem[] = [
 	{
 		icon: Compass,
 		value: 'Главная',
-		link: PUBLIC_URL.home()
+		link: '/'
 	},
 	{
 		icon: Trophy,

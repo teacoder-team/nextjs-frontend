@@ -7,25 +7,22 @@ export const APP_URL = process.env.APP_URL as string
  * Объект PUBLIC_URL содержит методы для генерации публичных URL-адресов приложения
  */
 export const PUBLIC_URL = {
-	root: (url = '') => `${url ? url : ''}`,
+	auth: () => '/sign-in',
+	leaderboard: () => '/leaderboard',
 
-	home: () => PUBLIC_URL.root('/'),
-	auth: () => PUBLIC_URL.root('/sign-in'),
-	leaderboard: () => PUBLIC_URL.root('/leaderboard'),
-
-	course: (slug = '') => PUBLIC_URL.root(`/courses/${slug}`),
+	course: (slug = '') => `/courses/${slug}`,
 	chapter: (courseSlug = '', chapterSlug = '') =>
-		PUBLIC_URL.root(`/courses/${courseSlug}/chapters/${chapterSlug}`),
+		`/courses/${courseSlug}/chapters/${chapterSlug}`,
 
-	privacy: () => PUBLIC_URL.root(`/docs/privacy`),
-	agreement: () => PUBLIC_URL.root(`/docs/agreement`)
+	privacy: () => `/docs/privacy`,
+	agreement: () => `/docs/agreement`
 }
 
 /**
  * Объект DASHBOARD_URL содержит методы для генерации URL-адресов личного кабинета
  */
 export const DASHBOARD_URL = {
-	root: (url = '') => `/dashboard${url ? '/' + url : ''}`,
+	root: (url = '') => `/student${url ? '/' + url : ''}`,
 
 	home: () => DASHBOARD_URL.root()
 }
