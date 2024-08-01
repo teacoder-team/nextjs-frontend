@@ -1,5 +1,5 @@
 .card {
-	@apply h-full overflow-hidden rounded-lg border p-3 transition hover:shadow-sm;
+	@apply h-full overflow-hidden rounded-lg border p-3 transition duration-300 hover:bg-slate-100 hover:shadow-sm;
 
 	&:hover h2 {
 		@apply text-sky-700;

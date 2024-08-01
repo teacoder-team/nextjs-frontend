@@ -13,7 +13,7 @@ import { cn } from '@/utils/clsx'
 
 import styles from './Progress.module.scss'
 
-const progressVariants = cva(styles.base, {
+const progressVariants = cva(styles.progress, {
 	variants: {
 		variant: {
 			default: styles.default,
@@ -32,6 +32,18 @@ export interface ProgressProps
 type CombinedProgressProps = ProgressProps &
 	ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>
 
+/**
+ * Компонент Progress отображает индикатор прогресса.
+ *
+ * Свойства:
+ * - value (число): Текущий процент завершения (от 0 до 100).
+ * - variant (строка): Определяет стиль индикатора прогресса. Возможные значения:
+ *   - 'default': стандартный стиль.
+ *   - 'success': стиль для успешного завершения.
+ *
+ * @param {CombinedProgressProps} props - Свойства компонента, включая классы и другие атрибуты.
+ * @returns {JSX.Element} Элемент индикатора прогресса.
+ */
 const Progress = forwardRef<
 	ElementRef<typeof ProgressPrimitive.Root>,
 	CombinedProgressProps

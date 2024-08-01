@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
 
-import { CourseCard } from '@/components/ui/elements/course-card/CourseCard'
+import { CourseList } from '@/components/ui/elements/course-list/CourseList'
 
 import courseService from '@/services/course.service'
-
-import styles from './Home.module.scss'
 
 export const metadata: Metadata = {
 	title: 'Образовательная платформа для программистов'
@@ -12,10 +10,10 @@ export const metadata: Metadata = {
 
 export const revalidate = 60
 
-async function getCourses() {
-	const courses = (await courseService.findAll()).filter(
-		course => course.isPublished
-	)
+async function getCourses(searchParams: { searchTerm: string }) {
+	const courses = (
+		await courseService.findAll(searchParams?.searchTerm as string)
+	).filter(course => course.isPublished)
 
 	return courses
 }
@@ -28,16 +26,18 @@ async function getCourses() {
  * Метаданные страницы:
  * - title: "Образовательная платформа для программистов"
  */
-export default async function HomePage() {
-	const courses = await getCourses()
+export default async function HomePage({
+	searchParams
+}: {
+	searchParams: {
+		searchTerm: string
+	}
+}) {
+	const courses = await getCourses(searchParams)
 
 	return (
-		<div className={styles.wrapper}>
-			<div className={styles.courses}>
-				{courses.map(course => (
-					<CourseCard key={course.id} course={course} />
-				))}
-			</div>
+		<div>
+			<CourseList courses={courses} />
 		</div>
 	)
 }

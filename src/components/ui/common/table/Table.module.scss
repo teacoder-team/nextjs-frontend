@@ -1,0 +1,7 @@
+.table_wrapper {
+	@apply relative w-full overflow-auto;
+
+	> table {
+		@apply w-full caption-bottom text-sm;
+	}
+}

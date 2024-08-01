@@ -20,6 +20,18 @@ const sizeByVariant = {
 	sm: 'text-xs'
 }
 
+/**
+ * Компонент ProgressBar отображает прогресс выполнения задачи с
+ * процентным значением. Поддерживает различные варианты оформления
+ * и размеры текста.
+ *
+ * Свойства:
+ * - value (число): Процент завершения (0-100).
+ * - variant (строка): Стиль ('default' или 'success').
+ * - size (строка): Размер текста ('default' или 'sm').
+ *
+ * @returns {JSX.Element} Элемент полосы прогресса.
+ */
 export const ProgressBar = ({ value, variant, size }: ProgressBarProps) => {
 	return (
 		<div>

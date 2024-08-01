@@ -10,8 +10,14 @@ import type { ICourse } from '@/types/course.interface'
  * информации о конкретном курсе по его слагу.
  */
 class CourseService {
-	async findAll() {
-		const { data } = await axiosClassic.get<ICourse[]>(API_URL.courses())
+	async findAll(searchTerm?: string) {
+		const { data } = await axiosClassic.get<ICourse[]>(API_URL.courses(), {
+			params: searchTerm
+				? {
+						searchTerm
+					}
+				: {}
+		})
 
 		return data
 	}

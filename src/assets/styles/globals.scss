@@ -64,9 +64,25 @@
 		@apply border-border;
 	}
 	body {
-		@apply overflow-x-hidden bg-background text-foreground;
+		@apply overflow-x-hidden bg-background;
 
 		font-family: var(--font-geist-sans), sans-serif;
 		height: 100vh;
 	}
+}
+
+::-webkit-scrollbar {
+	width: 9px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply rounded-full bg-gray-300 bg-opacity-65;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	@apply bg-gray-300 bg-opacity-65;
 }

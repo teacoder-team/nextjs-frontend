@@ -1,7 +1,7 @@
 {
 	"name": "teacoder-front",
 	"description": "This project is the frontend for the TeaCoder educational platform, designed to provide an engaging and interactive learning experience in web development. Built with Next.js, it leverages modern web technologies to ensure optimal performance, SEO friendliness, and a seamless user interface.",
-	"version": "0.1.9",
+	"version": "0.1.10",
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
@@ -18,6 +18,7 @@
 		"@radix-ui/react-progress": "^1.1.0",
 		"@radix-ui/react-slot": "^1.1.0",
 		"@tanstack/react-query": "^5.51.15",
+		"@tanstack/react-table": "^8.19.3",
 		"axios": "^1.7.2",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.1",

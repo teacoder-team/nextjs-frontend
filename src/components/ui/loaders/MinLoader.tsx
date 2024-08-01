@@ -5,11 +5,11 @@ import { cn } from '@/utils/clsx'
 
 import styles from './Loaders.module.scss'
 
-const iconVariants = cva(styles.base, {
+const iconVariants = cva(styles.min_loader, {
 	variants: {
 		size: {
 			default: styles.default,
-			large: styles.small
+			large: styles.large
 		}
 	},
 	defaultVariants: {

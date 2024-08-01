@@ -1,5 +1,5 @@
-.base {
-	@apply animate-spin;
+.min_loader {
+	@apply animate-spin text-muted-foreground;
 
 	&.default {
 		@apply size-6;

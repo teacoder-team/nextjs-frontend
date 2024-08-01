@@ -8,7 +8,7 @@ import { cn } from '@/utils/clsx'
 
 import styles from './Label.module.scss'
 
-const labelVariants = cva(styles.base)
+const labelVariants = cva(styles.label)
 
 /**
  * Компонент Label представляет собой текстовую метку для

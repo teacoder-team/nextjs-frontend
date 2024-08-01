@@ -34,6 +34,6 @@ export const ADMIN_URL = {
 	root: (url = '') => `/manage${url ? '/' + url : ''}`,
 
 	home: () => ADMIN_URL.root(),
-	users: (url = '') => ADMIN_URL.root(`users${url}`),
-	courses: (url = '') => ADMIN_URL.root(`courses${url}`)
+	users: (id = '') => ADMIN_URL.root(`users${id ? '/' + id : ''}`),
+	courses: (id = '') => ADMIN_URL.root(`courses${id ? '/' + id : ''}`)
 }

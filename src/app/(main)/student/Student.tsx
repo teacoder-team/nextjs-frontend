@@ -7,7 +7,7 @@ import { useProfile } from '@/hooks/useProfile'
 
 import { saveTokenStorage } from '@/services/auth/auth.helper'
 
-export function Dashboard() {
+export function Student() {
 	const searchParams = useSearchParams()
 
 	useEffect(() => {

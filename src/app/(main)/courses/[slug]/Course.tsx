@@ -1,9 +1,18 @@
 import { ICourse } from '@/types/course.interface'
 
+import styles from './Course.module.scss'
+import { CourseInfo } from './course-info/CourseInfo'
+
 interface CourseProps {
 	initialCourse: ICourse
 }
 
 export function Course({ initialCourse }: CourseProps) {
-	return <div>Course</div>
+	return (
+		<div className={styles.wrapper}>
+			<div className={styles.container}>
+				<CourseInfo course={initialCourse} />
+			</div>
+		</div>
+	)
 }

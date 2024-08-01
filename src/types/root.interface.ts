@@ -3,7 +3,7 @@
  * включая идентификатор и временные метки создания и обновления.
  */
 export interface IBase {
-	id: number
-	createdAt?: string
-	updatedAt?: string
+	id: string
+	createdAt: string
+	updatedAt: string
 }

@@ -6,7 +6,7 @@ import { cn } from '@/utils/clsx'
 
 import styles from './Button.module.scss'
 
-const buttonVariants = cva(styles.base, {
+const buttonVariants = cva(styles.button, {
 	variants: {
 		variant: {
 			default: styles.variant_default,
