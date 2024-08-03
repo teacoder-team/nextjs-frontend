@@ -58,7 +58,7 @@ instance.interceptors.response.use(
 			} catch (error) {
 				if (
 					errorCatch(error) === 'jwt expired' ||
-					errorCatch(error) === 'Refresh token not passed'
+					errorCatch(error) === 'Refresh токен не прошёл'
 				)
 					removeFromStorage()
 			}

@@ -1,0 +1,59 @@
+.sidebar {
+	@apply flex h-full flex-col border-r bg-white shadow-sm;
+
+	> .course_info {
+		@apply flex flex-col border-b p-8;
+
+		> h1 {
+			@apply line-clamp-2 font-semibold;
+		}
+
+		> .progress {
+			@apply mt-4;
+		}
+	}
+
+	.menu {
+		@apply relative flex w-full flex-col overflow-hidden;
+
+		.item {
+			@apply flex items-center gap-x-2 pl-6 text-sm font-medium text-slate-500 transition-all hover:bg-slate-300/20 hover:text-slate-700;
+
+			&.active {
+				@apply bg-slate-300/20 text-slate-700 hover:bg-slate-300/20 hover:text-slate-700;
+			}
+
+			&.completed {
+				@apply text-emerald-700 hover:text-emerald-700;
+			}
+
+			&.active_completed {
+				@apply bg-emerald-200/20;
+			}
+
+			> .route {
+				@apply flex items-center gap-x-2 py-5;
+
+				> svg {
+					@apply text-slate-500;
+
+					&.active {
+						@apply text-slate-700;
+					}
+
+					&.completed {
+						@apply text-emerald-700;
+					}
+				}
+			}
+		}
+	}
+}
+
+.mobile_trigger {
+	@apply pr-4 transition hover:opacity-75 md:hidden;
+}
+
+.mobile_content {
+	@apply w-72 bg-white p-0;
+}

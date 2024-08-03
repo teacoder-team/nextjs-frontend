@@ -7,13 +7,13 @@ import courseService from '@/services/course.service'
 
 import { Course } from './Course'
 
-export const revalidate = 60
+export const dynamic = 'force-static'
 
 /**
  * Функция generateStaticParams генерирует статические параметры для маршрутов.
  * Она получает все курсы и возвращает массив путей с их слагами.
  *
- * @returns {Promise<{ params: { slug: string } }[]>} Массив статических параметров.
+ * @returns {Promise<{ params: { courseSlug: string } }[]>} Массив статических параметров.
  */
 export async function generateStaticParams() {
 	const response = await courseService.findAll()
@@ -31,12 +31,12 @@ export async function generateStaticParams() {
  * Функция getCourse получает курс по его слагу.
  * Если курс не найден, вызывается функция notFound.
  *
- * @param { { slug: string } } params - Параметры, содержащие слаг курса.
+ * @param { { courseSlug: string } } params - Параметры, содержащие слаг курса.
  * @returns {Promise<ICourse | void>} Возвращает курс или вызывает notFound.
  */
-async function getCourse(params: { slug: string }) {
+async function getCourse(params: { courseSlug: string }) {
 	try {
-		const course = await courseService.findBySlug(params.slug)
+		const course = await courseService.findBySlug(params.courseSlug)
 
 		return course
 	} catch (error) {
@@ -47,13 +47,13 @@ async function getCourse(params: { slug: string }) {
 /**
  * Функция generateMetadata генерирует метаданные для страницы курса.
  *
- * @param { { params: { slug: string } } } params - Параметры, содержащие слаг курса.
+ * @param { { params: { courseSlug: string } } } params - Параметры, содержащие слаг курса.
  * @returns {Promise<Metadata>} Объект метаданных для страницы.
  */
 export async function generateMetadata({
 	params
 }: {
-	params: { slug: string }
+	params: { courseSlug: string }
 }): Promise<Metadata> {
 	const course = await getCourse(params)
 
@@ -99,7 +99,7 @@ export async function generateMetadata({
 export default async function CoursePage({
 	params
 }: {
-	params: { slug: string }
+	params: { courseSlug: string }
 }) {
 	const course = await getCourse(params)
 

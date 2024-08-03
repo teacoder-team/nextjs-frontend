@@ -74,12 +74,22 @@ const config = {
 						opacity: '1',
 						filter: 'blur(0)'
 					}
+				},
+				'spinner-spin': {
+					'0%': {
+						transform: 'rotate(0deg)'
+					},
+					'100%': {
+						transform: 'rotate(1turn)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.5s ease-in-out forwards'
+				'fade-in': 'fade-in 0.5s ease-in-out forwards',
+				'spinner-ease-spin': 'spinner-spin 0.8s ease infinite',
+				'spinner-linear-spin': 'spinner-spin 0.8s linear infinite'
 			}
 		}
 	},

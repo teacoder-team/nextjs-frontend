@@ -14,9 +14,13 @@ import { EnumRole } from '@/types/user.interface'
  * @returns {Object} Объект с данными пользователя, статусом загрузки и информацией о том, является ли пользователь администратором.
  */
 export function useProfile() {
-	const { data: user, isLoading } = useQuery({
+	const {
+		data: user,
+		isLoading,
+		isError
+	} = useQuery({
 		queryKey: ['profile'],
-		queryFn: () => userService.getProfile(),
+		queryFn: () => userService.findProfile(),
 		refetchInterval: 1800000
 	})
 

@@ -22,15 +22,28 @@ export default async function middleware(request: NextRequest) {
 		return NextResponse.next()
 	}
 
-	if (refreshToken === undefined)
-		return NextResponse.redirect(new URL(PUBLIC_URL.auth(), request.url))
+	if (refreshToken === undefined) {
+		if (isAdminPage) {
+			return NextResponse.rewrite(new URL('/404', request.url))
+		} else {
+			return NextResponse.redirect(new URL(PUBLIC_URL.auth(), request.url))
+		}
+	}
 
 	try {
-		const user = await userService.getProfileByToken(accessToken as string)
+		const user = await userService.findProfileByToken(accessToken as string)
 
-		if (user.role === EnumRole.Admin) return NextResponse.next()
+		if (user.role === EnumRole.Admin) {
+			return NextResponse.next()
+		}
 
-		if (isAdminPage) return NextResponse.rewrite(new URL('/404', request.url))
+		if (isAdminPage) {
+			console.log(
+				'Попытка несанкционированного доступа в админ-панель. Информация о пользователе: ',
+				JSON.stringify(user)
+			)
+			return NextResponse.rewrite(new URL('/404', request.url))
+		}
 
 		return NextResponse.next()
 	} catch (error) {

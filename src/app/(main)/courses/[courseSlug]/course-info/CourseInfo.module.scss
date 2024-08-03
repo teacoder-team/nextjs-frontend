@@ -1,5 +1,5 @@
 .course_info {
-	@apply order-1 col-span-1 flex flex-col space-y-6 lg:col-span-3;
+	@apply order-1 col-span-1 flex flex-col space-y-6 md:col-span-3;
 
 	> .video {
 		@apply relative aspect-video overflow-hidden rounded-md border bg-white;
@@ -9,7 +9,7 @@
 		@apply rounded-md border bg-white p-6;
 
 		> h2 {
-			@apply mb-2 text-lg font-semibold capitalize md:text-2xl;
+			@apply my-2 text-lg font-semibold capitalize md:text-2xl;
 		}
 
 		> p {

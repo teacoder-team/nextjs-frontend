@@ -1,0 +1,11 @@
+.navbar {
+	@apply flex h-full items-center border-b bg-white p-4;
+
+	.header_menu {
+		@apply ml-auto flex items-center gap-x-2;
+
+		.icon {
+			@apply mr-2 size-4;
+		}
+	}
+}

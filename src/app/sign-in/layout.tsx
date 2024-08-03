@@ -6,10 +6,10 @@ import styles from './Auth.module.scss'
  * Компонент AuthLayout определяет макет страницы авторизации,
  * включая фоновое изображение, которое меняется случайным образом.
  *
- * @param {PropsWithChildren<unknown>} props - Свойства макета, включая дочерние элементы.
+ * @param {PropsWithChildren} props - Свойства макета, включая дочерние элементы.
  * @returns {JSX.Element} Элемент макета страницы авторизации.
  */
-export default function AuthLayout({ children }: PropsWithChildren<unknown>) {
+export default function AuthLayout({ children }: PropsWithChildren) {
 	const images = [
 		'image-1.jpg',
 		'image-2.jpg',

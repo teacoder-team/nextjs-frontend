@@ -1,0 +1,19 @@
+.video {
+	@apply space-y-4 rounded-md border bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-sky-900 via-sky-950 to-gray-900 p-6 text-secondary;
+
+	> h4 {
+		@apply text-xl font-semibold;
+	}
+
+	> p {
+		@apply text-sm text-neutral-200;
+	}
+
+	> a > button {
+		@apply mt-4 w-full;
+
+		> svg {
+			@apply mr-2 size-4;
+		}
+	}
+}

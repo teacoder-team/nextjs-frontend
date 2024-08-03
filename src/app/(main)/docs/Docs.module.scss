@@ -1,0 +1,10 @@
+.wrapper {
+	p,
+	h2 {
+		@apply pt-3;
+	}
+
+	h2 {
+		@apply text-xl font-semibold;
+	}
+}

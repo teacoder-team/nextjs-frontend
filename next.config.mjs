@@ -5,6 +5,7 @@ const nextConfig = {
 		APP_URL: process.env.APP_URL,
 		APP_DOMAIN: process.env.APP_DOMAIN,
 		SERVER_URL: process.env.SERVER_URL,
+		DISCORD_AUTH_URL: process.env.DISCORD_AUTH_URL,
 		GOOGLE_TOKEN_VERIFICATION: process.env.GOOGLE_TOKEN_VERIFICATION,
 		YANDEX_TOKEN_VERIFICATION: process.env.YANDEX_TOKEN_VERIFICATION,
 	},
@@ -28,7 +29,7 @@ const nextConfig = {
 		return [
 			{
 				source: '/uploads/:path*',
-				destination: `${process.env.SERVER_URL}/uploads/:path*`
+				destination: `${this.env.SERVER_URL}/uploads/:path*`
 			}
 		]
 	}

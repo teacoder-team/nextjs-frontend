@@ -1,11 +1,19 @@
 .min_loader {
-	@apply animate-spin text-muted-foreground;
+	@apply animate-spin;
 
-	&.default {
+	&.variant_default {
+		@apply text-muted-foreground;
+	}
+
+	&.variant_primary {
+		@apply text-white;
+	}
+
+	&.size_default {
 		@apply size-6;
 	}
 
-	&.large {
+	&.size_large {
 		@apply size-9;
 	}
 }

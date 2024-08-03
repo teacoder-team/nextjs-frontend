@@ -1,10 +1,10 @@
-import type { PropsWithChildren } from 'react'
+import { PropsWithChildren } from 'react'
 
 import { cn } from '@/utils/clsx'
 
 import styles from './MainWrapper.module.scss'
 
-interface MainWrapperProps {
+interface MainWrapperProps extends PropsWithChildren {
 	className?: string
 }
 
@@ -12,12 +12,9 @@ interface MainWrapperProps {
  * Компонент MainWrapper оборачивает дочерние элементы
  * и применяет общие стили.
  *
- * @param {PropsWithChildren<MainWrapperProps>} props - Свойства компонента.
+ * @param {MainWrapperProps} props - Свойства компонента.
  * @returns {JSX.Element} Элемент div с применёнными стилями.
  */
-export function MainWrapper({
-	children,
-	className
-}: PropsWithChildren<MainWrapperProps>) {
+export function MainWrapper({ children, className }: MainWrapperProps) {
 	return <div className={cn(styles.main_wrapper, className)}>{children}</div>
 }

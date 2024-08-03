@@ -1,0 +1,15 @@
+.wrapper {
+	@apply h-full;
+
+	> .navbar {
+		@apply fixed inset-y-0 z-[49] h-20 w-full md:pl-80;
+	}
+
+	> .sidebar {
+		@apply fixed inset-y-0 z-[50] hidden h-full w-80 flex-col md:flex;
+	}
+
+	> main {
+		@apply h-full pt-20 md:pl-80;
+	}
+}

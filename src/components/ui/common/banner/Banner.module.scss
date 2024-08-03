@@ -1,0 +1,11 @@
+.banner {
+	@apply flex w-full items-center border p-4 text-center text-sm;
+
+	&.warning {
+		@apply border-sky-800 bg-sky-700 text-secondary;
+	}
+
+	&.success {
+		@apply border-emerald-800 bg-emerald-700 text-secondary;
+	}
+}

@@ -1,9 +1,25 @@
+/**
+ * Функция formatDate форматирует строку даты в формат "дд месяц гггг в чч:мм".
+ *
+ * Параметры:
+ * - dateString (string): Строка даты в формате, поддерживаемом конструктором Date.
+ *
+ * @returns {string} Отформатированная строка даты.
+ */
 export function formatDate(dateString: string) {
 	const date = new Date(dateString)
 
-	const day = String(date.getDate()).padStart(2, '0')
-	const month = String(date.getMonth() + 1).padStart(2, '0')
-	const year = date.getFullYear()
+	const options: Intl.DateTimeFormatOptions = {
+		day: '2-digit',
+		month: 'long',
+		year: 'numeric',
+		hour: '2-digit',
+		minute: '2-digit',
+		hour12: false
+	}
 
-	return `${day}.${month}.${year}`
+	return date
+		.toLocaleString('ru-RU', options)
+		.replace(', ', ' в ')
+		.replace(' г.', '')
 }

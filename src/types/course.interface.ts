@@ -3,7 +3,7 @@ import type { IBase } from './root.interface'
 
 /**
  * Интерфейс ICourse описывает структуру курса, включая
- * его название, ссылку, описание, URL изображения, URL видео,
+ * его название, ссылку, описание, список особенностей, URL изображения, URL видео,
  * URL репозитория, статус публикации, количество просмотров
  * и главы, входящие в курс.
  */
@@ -11,6 +11,7 @@ export interface ICourse extends IBase {
 	name: string
 	slug: string
 	description: string
+	features: string[]
 	imageUrl: string
 	videoUrl: string
 	repositoryUrl: string

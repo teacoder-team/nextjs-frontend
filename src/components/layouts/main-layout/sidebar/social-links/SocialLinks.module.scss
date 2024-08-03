@@ -1,0 +1,7 @@
+.links {
+	@apply flex w-full items-center justify-between border-t bg-white px-5 py-3;
+
+	a > svg {
+		@apply size-5 fill-muted-foreground;
+	}
+}
