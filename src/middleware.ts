@@ -23,7 +23,7 @@ export default async function middleware(request: NextRequest) {
 		return NextResponse.next()
 	}
 
-	if (refreshToken === undefined || accessToken === undefined) {
+	if (refreshToken === undefined) {
 		if (isAdminPage) {
 			return NextResponse.rewrite(new URL('/404', request.url))
 		} else {
@@ -33,7 +33,7 @@ export default async function middleware(request: NextRequest) {
 
 	try {
 		const { payload }: { payload: ITokenInside } = await jwtVerify(
-			accessToken,
+			accessToken as string,
 			new TextEncoder().encode(`${process.env.JWT_SECRET}`)
 		)
 
@@ -56,9 +56,8 @@ export default async function middleware(request: NextRequest) {
 			console.log('Токен истек')
 			return NextResponse.redirect(new URL(PUBLIC_URL.auth(), request.url))
 		}
-
-		console.log('Ошибка при верификации токена: ', error)
-		return NextResponse.redirect(new URL(PUBLIC_URL.auth(), request.url))
+		// console.log('Ошибка при верификации токена: ', error)
+		// return NextResponse.redirect(new URL(PUBLIC_URL.auth(), request.url))
 	}
 }
 
