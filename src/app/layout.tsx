@@ -1,3 +1,4 @@
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
 
@@ -98,9 +99,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='ru'>
+			<GoogleTagManager gtmId='GTM-5V42JG7P' />
 			<body className={GeistSans.variable}>
 				<MainProvider>{children}</MainProvider>
 			</body>
+			<GoogleAnalytics gaId='G-89X740CDRX' />
 		</html>
 	)
 }

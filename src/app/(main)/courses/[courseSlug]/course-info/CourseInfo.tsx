@@ -1,7 +1,6 @@
 import Image from 'next/image'
 
 import { CourseBadge } from '@/components/ui/elements/course-list/course-card/course-badge/CourseBadge'
-import { ProgressBar } from '@/components/ui/elements/progress-bar/ProgressBar'
 import { VideoPlayer } from '@/components/ui/elements/video-player/VideoPlayer'
 
 import { ICourse } from '@/types/course.interface'
@@ -36,7 +35,6 @@ export function CourseInfo({ course }: CourseInfoProps) {
 				<h2>{course.name}</h2>
 				<p>{course.description}</p>
 				{/* Добавить вывод категорий */}
-				<ProgressBar value={52} />
 			</div>
 		</div>
 	)
