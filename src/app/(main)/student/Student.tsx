@@ -1,11 +1,19 @@
 'use client'
 
+import { Construction } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 
+import Loading from '@/app/loading'
+
+import { Heading } from '@/components/ui/common/heading/Heading'
+import { MainWrapper } from '@/components/ui/elements/main-wrapper/MainWrapper'
+
 import { useProfile } from '@/hooks/useProfile'
 
-import { getAccessToken, saveTokenStorage } from '@/services/auth/auth.helper'
+import { saveTokenStorage } from '@/services/auth/auth.helper'
+
+import styles from './Student.module.scss'
 
 export function Student() {
 	const searchParams = useSearchParams()
@@ -18,7 +26,17 @@ export function Student() {
 
 	const { user, isLoading } = useProfile()
 
-	console.log(getAccessToken())
+	if (isLoading) return <Loading />
 
-	return <div>{isLoading ? 'Загрузка...' : JSON.stringify(user)}</div>
+	return (
+		<div>
+			<Heading title={`Привет, ${user?.profile.name}`} />
+			<MainWrapper>
+				<div className={styles.construction}>
+					<Construction />
+					<p>Данный раздел скоро появится!</p>
+				</div>
+			</MainWrapper>
+		</div>
+	)
 }

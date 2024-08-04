@@ -1,0 +1,11 @@
+.construction {
+	@apply mt-52 flex items-center rounded bg-muted px-5 py-4;
+
+	> p {
+		@apply text-black/80;
+	}
+
+	> svg {
+		@apply mr-2 size-5;
+	}
+}

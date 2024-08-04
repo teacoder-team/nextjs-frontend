@@ -76,8 +76,8 @@ export const metadata: Metadata = {
 		]
 	},
 	verification: {
-		google: process.env.GOOGLE_TOKEN_VERIFICATION, // Токен верификации Google
-		yandex: process.env.YANDEX_TOKEN_VERIFICATION // Токен верификации Яндекс
+		google: '89H2Fy7soWLhbxVRVychKcfgyNik8guwZod8nIl6YTg', // Токен верификации Google
+		yandex: '834f7318f7c48963' // Токен верификации Яндекс
 	},
 	formatDetection: {
 		telephone: false // Отключение автоматического определения телефонных номеров

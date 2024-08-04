@@ -1,8 +1,9 @@
+import { jwtVerify } from 'jose'
 import { type NextRequest, NextResponse } from 'next/server'
 
 import { ADMIN_URL, DASHBOARD_URL, PUBLIC_URL } from './config/url.config'
 import { EnumTokens } from './services/auth/auth.helper'
-import userService from './services/user.service'
+import { ITokenInside } from './services/auth/auth.types'
 import { EnumRole } from './types/user.interface'
 
 export default async function middleware(request: NextRequest) {
@@ -22,7 +23,7 @@ export default async function middleware(request: NextRequest) {
 		return NextResponse.next()
 	}
 
-	if (refreshToken === undefined) {
+	if (refreshToken === undefined || accessToken === undefined) {
 		if (isAdminPage) {
 			return NextResponse.rewrite(new URL('/404', request.url))
 		} else {
@@ -31,24 +32,33 @@ export default async function middleware(request: NextRequest) {
 	}
 
 	try {
-		const user = await userService.findProfileByToken(accessToken as string)
+		const { payload }: { payload: ITokenInside } = await jwtVerify(
+			accessToken,
+			new TextEncoder().encode(`${process.env.JWT_SECRET}`)
+		)
 
-		if (user.role === EnumRole.Admin) {
-			return NextResponse.next()
-		}
+		if (payload?.role === EnumRole.Admin) return NextResponse.next()
 
 		if (isAdminPage) {
 			console.log(
-				'Попытка несанкционированного доступа в админ-панель. Информация о пользователе: ',
-				JSON.stringify(user)
+				'Попытка несанкционированного доступа в админ-панель: ',
+				JSON.stringify(payload)
 			)
 			return NextResponse.rewrite(new URL('/404', request.url))
 		}
 
 		return NextResponse.next()
 	} catch (error) {
-		request.cookies.delete(EnumTokens.ACCESS_TOKEN)
-		console.log('Ошибка при получении профиля: ', error)
+		if (
+			error instanceof Error &&
+			error.message.includes('exp claim timestamp check failed')
+		) {
+			console.log('Токен истек')
+			return NextResponse.redirect(new URL(PUBLIC_URL.auth(), request.url))
+		}
+
+		console.log('Ошибка при верификации токена: ', error)
+		return NextResponse.redirect(new URL(PUBLIC_URL.auth(), request.url))
 	}
 }
 

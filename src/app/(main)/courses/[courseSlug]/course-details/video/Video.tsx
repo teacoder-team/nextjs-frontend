@@ -1,14 +1,11 @@
 'use client'
 
-import Cookies from 'js-cookie'
 import { PlayCircle } from 'lucide-react'
 import Link from 'next/link'
 
 import { Button } from '@/components/ui/common/button/Button'
 
 import { PUBLIC_URL } from '@/config/url.config'
-
-import { EnumTokens } from '@/services/auth/auth.helper'
 
 import { ICourse } from '@/types/course.interface'
 
@@ -27,8 +24,6 @@ interface VideoProps {
  * @returns {JSX.Element} Элемент с информацией о видео курса и кнопкой просмотра.
  */
 export function Video({ course }: VideoProps) {
-	const accessToken = Cookies.get(EnumTokens.ACCESS_TOKEN)
-
 	return (
 		<div className={styles.video}>
 			<h4>
@@ -42,26 +37,14 @@ export function Video({ course }: VideoProps) {
 					: 'Этот курс пока доступен только на YouTube.'}
 			</p>
 			{course.chapters.length ? (
-				accessToken ? (
-					<Link
-						href={PUBLIC_URL.chapter(
-							course.slug,
-							course.chapters[0].slug
-						)}
-					>
-						<Button variant='secondary'>
-							<PlayCircle />
-							Смотреть
-						</Button>
-					</Link>
-				) : (
-					<Link href={PUBLIC_URL.auth()}>
-						<Button variant='secondary'>
-							<PlayCircle />
-							Смотреть
-						</Button>
-					</Link>
-				)
+				<Link
+					href={PUBLIC_URL.chapter(course.slug, course.chapters[0].slug)}
+				>
+					<Button variant='secondary'>
+						<PlayCircle />
+						Смотреть
+					</Button>
+				</Link>
 			) : (
 				<Link href={course.videoUrl} target='_blank'>
 					<Button variant='secondary'>Смотреть на YouTube</Button>
