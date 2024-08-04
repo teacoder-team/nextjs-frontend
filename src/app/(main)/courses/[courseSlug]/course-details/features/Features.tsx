@@ -4,6 +4,14 @@ interface FeaturesProps {
 	features: string[]
 }
 
+/**
+ * Компонент Features отображает список особенностей курса.
+ *
+ * @param {FeaturesProps} props - Свойства компонента.
+ * @param {string[]} props.features - Массив строк, описывающих особенности курса.
+ *
+ * @returns {JSX.Element | null} Элемент с особенностями курса или null, если список пуст.
+ */
 export function Features({ features }: FeaturesProps) {
 	if (!features.length) return null
 

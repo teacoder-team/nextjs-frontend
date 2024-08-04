@@ -18,6 +18,14 @@ interface VideoProps {
 	course: ICourse
 }
 
+/**
+ * Компонент Video отображает информацию о видео курса и кнопку для просмотра.
+ *
+ * @param {VideoProps} props - Свойства компонента.
+ * @param {ICourse} props.course - Объект курса с информацией о видео.
+ *
+ * @returns {JSX.Element} Элемент с информацией о видео курса и кнопкой просмотра.
+ */
 export function Video({ course }: VideoProps) {
 	const accessToken = Cookies.get(EnumTokens.ACCESS_TOKEN)
 

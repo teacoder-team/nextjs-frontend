@@ -12,6 +12,15 @@ interface CourseInfoProps {
 	course: ICourse
 }
 
+/**
+ * Компонент CourseInfo отображает информацию о курсе,
+ * включая видео (или изображение), название, описание и значок курса.
+ *
+ * @param {CourseInfoProps} props - Свойства компонента.
+ * @param {ICourse} props.course - Объект курса с информацией для отображения.
+ *
+ * @returns {JSX.Element} Элемент с информацией о курсе.
+ */
 export function CourseInfo({ course }: CourseInfoProps) {
 	return (
 		<div className={styles.course_info}>

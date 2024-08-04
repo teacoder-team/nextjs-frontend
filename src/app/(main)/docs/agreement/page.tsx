@@ -7,9 +7,16 @@ import styles from '../Docs.module.scss'
 
 export const metadata: Metadata = {
 	title: 'Пользовательское соглашение',
+	description:
+		'Ознакомьтесь с нашим пользовательским соглашением, которое регулирует использование нашего сайта и услуг.',
 	...NO_INDEX_PAGE
 }
 
+/**
+ * Компонент страницы, отображающий содержимое пользовательского соглашения.
+ *
+ * @returns {JSX.Element} Элемент страницы с пользовательским соглашением.
+ */
 export default function AgreementPage() {
 	return (
 		<div className={styles.wrapper}>

@@ -1,10 +1,14 @@
 'use client'
 
 import { useQuery } from '@tanstack/react-query'
-import Image from 'next/image'
 
 import Loading from '@/app/loading'
 
+import {
+	Avatar,
+	AvatarFallback,
+	AvatarImage
+} from '@/components/ui/common/avatar/Avatar'
 import { Heading } from '@/components/ui/common/heading/Heading'
 import {
 	Table,
@@ -21,6 +25,13 @@ import userService from '@/services/user.service'
 
 import styles from './LeaderBoard.module.scss'
 
+/**
+ * Компонент LeaderBoard отображает таблицу лидеров, показывающую пользователей с наибольшим количеством очков.
+ * Он использует данные, полученные с помощью Tanstack Query из userService, и предоставляет пользователю визуальное
+ * представление ранжирования по очкам.
+ *
+ * @returns {JSX.Element} Элемент с таблицей лидеров.
+ */
 export function LeaderBoard() {
 	const { user: currentUser } = useProfile()
 
@@ -50,12 +61,15 @@ export function LeaderBoard() {
 						<TableRow>
 							<TableCell className={styles.rank}>🚀</TableCell>
 							<TableCell className={styles.user}>
-								<Image
-									src={currentUser.profile.picture}
-									alt={currentUser.profile.name}
-									width={35}
-									height={35}
-								/>
+								<Avatar>
+									<AvatarImage
+										src={currentUser.profile.picture}
+										alt={currentUser.profile.name}
+									/>
+									<AvatarFallback>
+										{currentUser.profile.name.slice(0, 1)}
+									</AvatarFallback>
+								</Avatar>
 								{currentUser.profile.name}
 								<div className={styles.success}>
 									<span>Вы</span>
@@ -75,12 +89,15 @@ export function LeaderBoard() {
 									{idx + 1}.
 								</TableCell>
 								<TableCell className={styles.user}>
-									<Image
-										src={user.profile.picture}
-										alt={user.profile.name}
-										width={35}
-										height={35}
-									/>
+									<Avatar>
+										<AvatarImage
+											src={user.profile.picture}
+											alt={user.profile.name}
+										/>
+										<AvatarFallback>
+											{user.profile.name.slice(0, 1)}
+										</AvatarFallback>
+									</Avatar>
 									{user.profile.name}
 								</TableCell>
 								<TableCell>

@@ -5,9 +5,16 @@ import { NO_INDEX_PAGE, SITE_NAME } from '@/constants/seo.constants'
 
 export const metadata: Metadata = {
 	title: 'Политика конфиденциальности',
+	description:
+		'Изучите нашу политику конфиденциальности, чтобы узнать, как мы собираем, используем и защищаем ваши личные данные.',
 	...NO_INDEX_PAGE
 }
 
+/**
+ * Компонент страницы, отображающий содержимое политики конфиденциальности.
+ *
+ * @returns {JSX.Element} Элемент страницы с политикой конфиденциальности.
+ */
 export default function Page() {
 	return (
 		<div>

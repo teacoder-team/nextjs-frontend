@@ -11,6 +11,11 @@ export const metadata: Metadata = {
 	...NO_INDEX_PAGE
 }
 
+/**
+ * Компонент страницы, отображающий таблицу лидеров, используя компонент LeaderBoard.
+ *
+ * @returns {JSX.Element} Элемент страницы с таблицей лидеров.
+ */
 export default function LeaderBoardPage() {
 	return <LeaderBoard />
 }

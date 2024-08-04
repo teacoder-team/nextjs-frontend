@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 
 import { useProfile } from '@/hooks/useProfile'
 
-import { saveTokenStorage } from '@/services/auth/auth.helper'
+import { getAccessToken, saveTokenStorage } from '@/services/auth/auth.helper'
 
 export function Student() {
 	const searchParams = useSearchParams()
@@ -17,6 +17,8 @@ export function Student() {
 	}, [searchParams])
 
 	const { user, isLoading } = useProfile()
+
+	console.log(getAccessToken())
 
 	return <div>{isLoading ? 'Загрузка...' : JSON.stringify(user)}</div>
 }

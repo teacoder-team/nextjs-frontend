@@ -1,10 +1,3 @@
-import { LogOut } from 'lucide-react'
-import Link from 'next/link'
-
-import { Button } from '@/components/ui/common/button/Button'
-
-import { PUBLIC_URL } from '@/config/url.config'
-
 import type { ICourse } from '@/types/course.interface'
 
 import { HeaderMenu } from '../../main-layout/header/header-menu/HeaderMenu'
@@ -18,16 +11,18 @@ interface CourseNavbarProps {
 }
 
 export function CourseNavbar({ course, progressCount }: CourseNavbarProps) {
+	// console.log(course)
+
 	return (
 		<div className={styles.navbar}>
 			<CourseMobileSidebar course={course} progressCount={progressCount} />
 			<div className={styles.header_menu}>
-				<Link href={PUBLIC_URL.course(course.slug)}>
+				{/* <Link href={PUBLIC_URL.course(course.slug)}>
 					<Button variant='ghost'>
 						<LogOut className={styles.icon} />
 						Вернутся к курсу
 					</Button>
-				</Link>
+				</Link> */}
 				<HeaderMenu />
 			</div>
 		</div>

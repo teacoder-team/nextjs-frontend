@@ -33,6 +33,14 @@ class UserService {
 
 		return response.json()
 	}
+
+	async findProgress(courseId: string) {
+		const { data } = await instance.get(
+			API_URL.users(`/progress/${courseId}`)
+		)
+
+		return data
+	}
 }
 
 export default new UserService()

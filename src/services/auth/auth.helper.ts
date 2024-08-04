@@ -1,4 +1,4 @@
-import Cookies from 'js-cookie'
+import { deleteCookie, getCookie, setCookie } from 'cookies-next'
 
 /**
  * Перечисление токенов, используемых для аутентификации.
@@ -14,7 +14,9 @@ export enum EnumTokens {
  * @returns {string | null} accessToken или null, если он не найден.
  */
 export const getAccessToken = () => {
-	const accessToken = Cookies.get(EnumTokens.ACCESS_TOKEN)
+	const accessToken = getCookie(EnumTokens.ACCESS_TOKEN, {
+		path: '/'
+	})
 	return accessToken || null
 }
 
@@ -24,10 +26,10 @@ export const getAccessToken = () => {
  * @param {string} accessToken - accessToken для сохранения.
  */
 export const saveTokenStorage = (accessToken: string) => {
-	Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
+	setCookie(EnumTokens.ACCESS_TOKEN, accessToken, {
 		domain: process.env.APP_DOMAIN,
 		sameSite: 'strict',
-		expires: 1
+		maxAge: 60 * 60 * 24
 	})
 }
 
@@ -35,5 +37,7 @@ export const saveTokenStorage = (accessToken: string) => {
  * Удаляет accessToken из cookie.
  */
 export const removeFromStorage = () => {
-	Cookies.remove(EnumTokens.ACCESS_TOKEN)
+	deleteCookie(EnumTokens.ACCESS_TOKEN, {
+		domain: process.env.APP_DOMAIN
+	})
 }

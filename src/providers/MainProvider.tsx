@@ -28,11 +28,7 @@ export function MainProvider({ children }: PropsWithChildren) {
 			<Toaster
 				position='top-center'
 				toastOptions={{
-					duration: 2000,
-					style: {
-						background: '#333',
-						color: '#fff'
-					}
+					duration: 2000
 				}}
 			/>
 			{children}

@@ -9,6 +9,14 @@ interface LinksProps {
 	course: ICourse
 }
 
+/**
+ * Компонент Links отображает ссылки, связанные с курсом, такие как YouTube, Telegram и GitHub.
+ *
+ * @param {LinksProps} props - Свойства компонента.
+ * @param {ICourse} props.course - Объект курса с информацией о ссылках.
+ *
+ * @returns {JSX.Element} Элемент с ссылками, связанными с курсом.
+ */
 export function Links({ course }: LinksProps) {
 	return (
 		<div className={styles.links}>

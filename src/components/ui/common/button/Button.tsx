@@ -10,12 +10,12 @@ const buttonVariants = cva(styles.button, {
 	variants: {
 		variant: {
 			default: styles.variant_default,
-			destructive: styles.variant_destructive,
 			outline: styles.variant_outline,
 			secondary: styles.variant_secondary,
 			ghost: styles.variant_ghost,
 			link: styles.variant_link,
-			primary: styles.variant_primary
+			primary: styles.variant_primary,
+			success: styles.variant_success
 		},
 		size: {
 			default: styles.size_default,

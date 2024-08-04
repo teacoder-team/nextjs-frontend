@@ -16,12 +16,12 @@ interface CourseCardProps {
 
 /**
  * Компонент CourseCard отображает информацию о курсе в виде карточки,
- * включая изображение, название, описание и индикатор прогресса.
+ * включая изображение, название, описание, компонент CourseBadge и индикатор прогресса.
  *
- * Свойства:
- * - course (ICourse): Объект курса, содержащий информацию для отображения.
+ * @param {CourseCardProps} props - Свойства компонента.
+ * @param {ICourse} props.course - Объект курса с информацией для отображения.
  *
- * @returns {JSX.Element} Элемент карточки курса.
+ * @returns {JSX.Element} Элемент карточки курса, ссылающийся на страницу курса.
  */
 export function CourseCard({ course }: CourseCardProps) {
 	return (

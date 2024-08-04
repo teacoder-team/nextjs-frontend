@@ -8,6 +8,14 @@ interface CourseProps {
 	initialCourse: ICourse
 }
 
+/**
+ * Компонент Course отображает информацию о курсе, включая основные сведения и детали.
+ *
+ * @param {CourseProps} props - Свойства компонента.
+ * @param {ICourse} props.initialCourse - Объект курса с информацией для отображения.
+ *
+ * @returns {JSX.Element} Элемент курса, содержащий информацию и детали курса.
+ */
 export function Course({ initialCourse }: CourseProps) {
 	return (
 		<div className={styles.wrapper}>

@@ -1,4 +1,4 @@
-import { axiosClassic } from '@/api/api.interceptors'
+import { axiosClassic, instance } from '@/api/api.interceptors'
 
 import { API_URL } from '@/config/api.config'
 
@@ -12,7 +12,7 @@ class ChapterService {
 	}
 
 	async findBySlug(slug: string) {
-		const { data } = await axiosClassic.get<IChapter>(
+		const { data } = await instance.get<IChapter>(
 			API_URL.chapters(`/by-slug/${slug}`)
 		)
 

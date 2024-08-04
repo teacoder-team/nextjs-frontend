@@ -5,10 +5,6 @@
 		@apply bg-primary text-primary-foreground hover:bg-primary/90;
 	}
 
-	&.variant_destructive {
-		@apply bg-destructive text-destructive-foreground hover:bg-destructive/90;
-	}
-
 	&.variant_outline {
 		@apply border border-input bg-background hover:bg-accent hover:text-accent-foreground;
 	}
@@ -27,6 +23,10 @@
 
 	&.variant_primary {
 		@apply bg-sky-700 text-primary-foreground hover:bg-sky-700/90;
+	}
+
+	&.variant_success {
+		@apply bg-emerald-600 text-white hover:bg-emerald-600/80;
 	}
 
 	&.size_default {

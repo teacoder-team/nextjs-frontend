@@ -32,6 +32,8 @@ export const instance = axios.create(axiosOptions)
 instance.interceptors.request.use(config => {
 	const accessToken = getAccessToken()
 
+	console.log('INTERCEPTORS: ', accessToken)
+
 	if (config?.headers && accessToken)
 		config.headers.Authorization = `Bearer ${accessToken}`
 

@@ -1,4 +1,9 @@
+'use client'
+
+import { useQuery } from '@tanstack/react-query'
 import type { PropsWithChildren } from 'react'
+
+import userService from '@/services/user.service'
 
 import type { ICourse } from '@/types/course.interface'
 
@@ -8,14 +13,14 @@ import { CourseSidebar } from './course-sidebar/CourseSidebar'
 
 interface CourseLayoutProps extends PropsWithChildren {
 	course: ICourse
-	progressCount: number
 }
 
-export function CourseLayout({
-	children,
-	course,
-	progressCount
-}: CourseLayoutProps) {
+export function CourseLayout({ children, course }: CourseLayoutProps) {
+	const { data: progressCount } = useQuery({
+		queryKey: ['progress'],
+		queryFn: () => userService.findProgress(course.id)
+	})
+
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.navbar}>
