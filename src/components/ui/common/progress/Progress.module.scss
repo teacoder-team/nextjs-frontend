@@ -1,0 +1,11 @@
+.progress {
+	@apply h-full w-full flex-1 bg-primary transition-all;
+
+	&.default {
+		@apply bg-sky-600;
+	}
+
+	&.success {
+		@apply bg-emerald-700;
+	}
+}

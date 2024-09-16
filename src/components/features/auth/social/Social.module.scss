@@ -1,0 +1,27 @@
+.social {
+	@apply grid grid-cols-3 gap-6;
+
+	> button > svg {
+		@apply size-5;
+	}
+}
+
+.separator {
+	@apply relative mb-2 space-y-4;
+
+	> .line {
+		@apply absolute inset-0 flex items-center;
+
+		> span {
+			@apply w-full border-t;
+		}
+	}
+
+	> .text_wrapper {
+		@apply relative flex justify-center text-xs uppercase;
+
+		> span {
+			@apply bg-background px-2 text-muted-foreground;
+		}
+	}
+}

@@ -1,0 +1,19 @@
+.badge {
+	@apply flex items-center gap-x-2 text-sm md:text-xs;
+
+	> div {
+		@apply inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-medium;
+
+		&.blue {
+			@apply bg-sky-500/10 text-sky-800;
+		}
+
+		&.red {
+			@apply bg-red-500/10 text-red-700;
+		}
+
+		> svg {
+			@apply mr-2 size-4;
+		}
+	}
+}

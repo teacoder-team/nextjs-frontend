@@ -1,0 +1,33 @@
+.layout {
+	@apply flex h-full items-center justify-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-600 to-sky-700;
+
+	> .wrapper {
+		@apply w-[400px];
+
+		> .header {
+			@apply mt-2 grid gap-y-2 text-center;
+
+			> img {
+				@apply mx-auto rounded-full;
+			}
+
+			> .heading {
+				@apply text-3xl font-bold;
+			}
+		}
+
+		> .content {
+			form {
+				@apply space-y-3;
+
+				.recovery {
+					@apply ml-auto inline-block text-sm underline;
+				}
+			}
+		}
+
+		.switch {
+			@apply w-full font-normal;
+		}
+	}
+}

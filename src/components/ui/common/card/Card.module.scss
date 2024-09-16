@@ -1,0 +1,23 @@
+.card {
+	@apply rounded-lg border bg-card text-card-foreground shadow-sm;
+
+	> .header {
+		@apply flex flex-col space-y-1.5 p-6;
+
+		> .title {
+			@apply text-2xl font-semibold leading-none tracking-tight;
+		}
+
+		> .description {
+			@apply text-sm text-muted-foreground;
+		}
+	}
+
+	> .content {
+		@apply p-6 pt-0;
+	}
+
+	> .footer {
+		@apply flex items-center p-6 pt-0;
+	}
+}

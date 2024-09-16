@@ -1,0 +1,15 @@
+.links {
+	@apply flex items-center gap-x-2;
+
+	> a {
+		@apply flex w-full flex-col items-center gap-y-2 rounded-md border p-4 transition-colors hover:bg-accent;
+
+		> svg {
+			@apply size-7;
+		}
+
+		> span {
+			@apply text-xs text-muted-foreground;
+		}
+	}
+}

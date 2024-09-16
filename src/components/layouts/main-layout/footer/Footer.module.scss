@@ -1,0 +1,11 @@
+.footer {
+	@apply flex w-full flex-col items-start border-t bg-white p-4 md:flex-row md:items-center;
+
+	> .rights {
+		@apply px-4 py-2 text-xs text-muted-foreground md:flex-1;
+	}
+
+	> button > a {
+		@apply text-xs text-muted-foreground;
+	}
+}

@@ -1,0 +1,23 @@
+.layout {
+	@apply flex h-full flex-col;
+
+	> .content_wrapper {
+		@apply flex-1;
+
+		> .header {
+			@apply fixed inset-y-0 z-[50] h-20 w-full;
+		}
+
+		> .sidebar {
+			@apply fixed inset-y-0 z-[49] hidden h-full w-64 flex-col pt-20 md:flex;
+		}
+
+		> main {
+			@apply m-6 h-full pt-20 md:pl-64;
+		}
+	}
+
+	> .footer {
+		@apply md:pl-64;
+	}
+}

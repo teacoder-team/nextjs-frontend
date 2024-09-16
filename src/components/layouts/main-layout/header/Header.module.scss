@@ -1,0 +1,27 @@
+.header {
+	@apply flex h-full items-center border-b bg-white p-4;
+
+	> .logo {
+		@apply hidden items-center gap-x-4 transition-opacity hover:opacity-75 md:flex;
+
+		> img {
+			@apply rounded-full;
+		}
+
+		> p {
+			@apply text-2xl font-bold text-sky-700;
+		}
+	}
+
+	> .search {
+		@apply ml-auto hidden lg:block;
+	}
+
+	.header_menu {
+		@apply ml-auto flex items-center gap-x-2;
+
+		.icon {
+			@apply mr-2 size-4;
+		}
+	}
+}

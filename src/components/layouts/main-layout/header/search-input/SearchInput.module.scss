@@ -1,0 +1,15 @@
+.search {
+	@apply flex items-center relative;
+
+	> input {
+		@apply w-full lg:w-[600px] rounded-lg rounded-r-none focus-visible:ring-transparent pr-8;
+	}
+
+	> button {
+		@apply bg-sky-700 text-white hover:bg-sky-700/80 h-10 px-4 py-2 rounded-l-none;
+
+		> svg {
+			@apply size-4;
+		}
+	}
+}

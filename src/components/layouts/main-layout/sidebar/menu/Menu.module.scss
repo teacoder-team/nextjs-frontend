@@ -1,0 +1,23 @@
+.menu {
+	@apply flex w-full flex-col;
+
+	> .route {
+		@apply flex items-center gap-x-3 pl-6 text-sm font-medium text-slate-500 transition-all hover:bg-slate-300/20 hover:text-slate-600;
+
+		> .link {
+			@apply flex items-center gap-x-3 py-4;
+		}
+
+		> .right {
+			@apply ml-auto hidden h-full border-2 border-sky-700 opacity-0 transition-all md:flex;
+
+			&.active {
+				@apply opacity-100;
+			}
+		}
+
+		&.active {
+			@apply bg-sky-200/20 text-sky-700 hover:bg-sky-200/20 hover:text-sky-700;
+		}
+	}
+}

@@ -1,0 +1,7 @@
+.sidebar {
+	@apply flex h-full flex-col overflow-y-auto border-r bg-white;
+
+	> .menu {
+		@apply flex w-full flex-1 flex-col;
+	}
+}

@@ -1,0 +1,39 @@
+.overlay {
+	@apply fixed inset-0 z-50 bg-black/80;
+}
+
+.content {
+	@apply fixed z-50 gap-4 bg-background p-0 shadow-lg transition ease-in-out;
+
+	&.top {
+		@apply inset-x-0 top-0 border-b;
+	}
+
+	&.bottom {
+		@apply inset-x-0 bottom-0 border-t;
+	}
+
+	&.left {
+		@apply inset-y-0 left-0 h-full w-3/4 border-r sm:max-w-sm;
+	}
+
+	&.right {
+		@apply inset-y-0 right-0 h-full w-3/4 border-l sm:max-w-sm;
+	}
+
+	> .header {
+		@apply flex flex-col space-y-2 text-center sm:text-left;
+
+		> .title {
+			@apply text-lg font-semibold text-foreground;
+		}
+
+		> .description {
+			@apply text-sm text-muted-foreground;
+		}
+	}
+
+	> .footer {
+		@apply flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2;
+	}
+}

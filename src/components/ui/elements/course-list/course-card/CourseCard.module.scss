@@ -1,0 +1,27 @@
+.card {
+	@apply h-full overflow-hidden rounded-lg border p-3 transition duration-300 hover:bg-slate-100 hover:shadow-sm;
+
+	&:hover h2 {
+		@apply text-sky-700;
+	}
+
+	> .image {
+		@apply relative aspect-video w-full overflow-hidden rounded-md;
+
+		> img {
+			@apply h-full w-full animate-fade-in object-cover;
+		}
+	}
+
+	> .info {
+		@apply flex flex-col space-y-3 pb-1 pt-3;
+
+		> h2 {
+			@apply line-clamp-1 text-lg font-medium transition group-hover:text-sky-700 md:text-base;
+		}
+
+		> p {
+			@apply line-clamp-2 text-sm text-muted-foreground;
+		}
+	}
+}
