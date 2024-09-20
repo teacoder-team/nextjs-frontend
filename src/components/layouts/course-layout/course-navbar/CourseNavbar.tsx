@@ -1,4 +1,9 @@
-import type { ICourse } from '@/types/course.interface'
+import { LogOut } from 'lucide-react'
+import Link from 'next/link'
+
+import { Button } from '@/components/ui/common/button/Button'
+
+import type { Course } from '@/types/course.interface'
 
 import { HeaderMenu } from '../../main-layout/header/header-menu/HeaderMenu'
 import { CourseMobileSidebar } from '../course-sidebar/CourseMobileSidebar'
@@ -6,23 +11,21 @@ import { CourseMobileSidebar } from '../course-sidebar/CourseMobileSidebar'
 import styles from './CourseNavbar.module.scss'
 
 interface CourseNavbarProps {
-	course: ICourse
+	course: Course
 	progressCount: number
 }
 
 export function CourseNavbar({ course, progressCount }: CourseNavbarProps) {
-	// console.log(course)
-
 	return (
 		<div className={styles.navbar}>
 			<CourseMobileSidebar course={course} progressCount={progressCount} />
 			<div className={styles.header_menu}>
-				{/* <Link href={PUBLIC_URL.course(course.slug)}>
+				<Link href={`/courses/${course.slug}`}>
 					<Button variant='ghost'>
 						<LogOut className={styles.icon} />
 						Вернутся к курсу
 					</Button>
-				</Link> */}
+				</Link>
 				<HeaderMenu />
 			</div>
 		</div>

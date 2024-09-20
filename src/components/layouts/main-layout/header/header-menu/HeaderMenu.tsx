@@ -1,7 +1,7 @@
 'use client'
 
 import { Spinner } from '@nextui-org/spinner'
-import { Settings, Shield, User } from 'lucide-react'
+import { User } from 'lucide-react'
 import Link from 'next/link'
 
 import {
@@ -19,8 +19,6 @@ import {
 } from '@/components/ui/common/dropdown-menu/DropdownMenu'
 
 import { useProfile } from '@/hooks/useProfile'
-
-import { UserRole } from '@/types/user.interface'
 
 import { LogoutButton } from './LogoutButton'
 
@@ -53,20 +51,6 @@ export function HeaderMenu() {
 						Личный кабинет
 					</DropdownMenuItem>
 				</Link>
-				<Link href='/account/settings' passHref>
-					<DropdownMenuItem>
-						<Settings className='mr-2 size-4' />
-						Настройки
-					</DropdownMenuItem>
-				</Link>
-				{user.role === UserRole.Admin && (
-					<Link href='/manage' passHref>
-						<DropdownMenuItem>
-							<Shield className='mr-2 size-4' />
-							Админ панель
-						</DropdownMenuItem>
-					</Link>
-				)}
 				<LogoutButton />
 			</DropdownMenuContent>
 		</DropdownMenu>

@@ -3,6 +3,8 @@ import Link from 'next/link'
 
 import { NO_INDEX_PAGE, SITE_NAME } from '@/constants/seo.constants'
 
+import styles from '../Docs.module.scss'
+
 export const metadata: Metadata = {
 	title: 'Политика конфиденциальности',
 	description:
@@ -10,14 +12,9 @@ export const metadata: Metadata = {
 	...NO_INDEX_PAGE
 }
 
-/**
- * Компонент страницы, отображающий содержимое политики конфиденциальности.
- *
- * @returns {JSX.Element} Элемент страницы с политикой конфиденциальности.
- */
 export default function Page() {
 	return (
-		<div>
+		<div className={styles.wrapper}>
 			<h1 className='text-2xl font-semibold'>Политика конфиденциальности</h1>
 			<p>
 				Политика обработки персональных данных (далее – Политика или

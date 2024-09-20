@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 
 import styles from './Menu.module.scss'
 import { MenuItem } from './MenuItem'
-import { adminMenu, userMenu } from './admin.menu'
+import { adminMenu, userMenu } from './menu.data'
 
 export function Menu() {
 	const pathname = usePathname()

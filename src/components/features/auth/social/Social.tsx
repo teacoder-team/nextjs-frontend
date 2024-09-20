@@ -2,7 +2,7 @@
 
 import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
-import { FaGithub, FaYandex } from 'react-icons/fa'
+import { FaYandex } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 
 import { Button } from '@/components/ui/common/button/Button'
@@ -16,11 +16,11 @@ export function Social() {
 
 	const { mutateAsync, isPending } = useMutation({
 		mutationKey: ['oauth by provider'],
-		mutationFn: async (provider: 'google' | 'github' | 'yandex') =>
+		mutationFn: async (provider: 'google' | 'yandex') =>
 			await authService.oauthByProvider(provider)
 	})
 
-	const onClick = async (provider: 'google' | 'github' | 'yandex') => {
+	const onClick = async (provider: 'google' | 'yandex') => {
 		const response = await mutateAsync(provider)
 
 		if (response) {
@@ -37,13 +37,6 @@ export function Social() {
 					disabled={isPending}
 				>
 					<FcGoogle />
-				</Button>
-				<Button
-					onClick={() => onClick('github')}
-					variant='outline'
-					disabled={isPending}
-				>
-					<FaGithub />
 				</Button>
 				<Button
 					onClick={() => onClick('yandex')}

@@ -1,6 +1,6 @@
 import { api } from '@/api/instance.api'
 
-import type { Chapter } from '@/types/chapter.interface'
+import type { Chapter, ChapterResponse } from '@/types/chapter.interface'
 
 class ChapterService {
 	public async findAll() {
@@ -10,7 +10,9 @@ class ChapterService {
 	}
 
 	public async findBySlug(slug: string) {
-		const response = await api.get<Chapter>(`chapters/by-slug/${slug}`)
+		const response = await api.get<ChapterResponse>(
+			`chapters/by-slug/${slug}`
+		)
 
 		return response
 	}

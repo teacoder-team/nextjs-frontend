@@ -4,7 +4,7 @@ import { userService } from '@/services/user.service'
 
 export function useProfile() {
 	const { data: user, isLoading: isLoadingProfile } = useQuery({
-		queryKey: ['find user profile'],
+		queryKey: ['profile'],
 		queryFn: () => userService.findProfile()
 	})
 

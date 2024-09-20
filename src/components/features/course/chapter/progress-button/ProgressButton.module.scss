@@ -1,0 +1,7 @@
+.progress_button {
+	@apply mb-3 w-full md:mb-0 md:w-auto;
+
+	> svg {
+		@apply ml-2 size-4;
+	}
+}

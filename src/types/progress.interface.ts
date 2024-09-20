@@ -3,8 +3,8 @@ import { Base } from './root.interface'
 
 export interface UserProgress extends Base {
 	isCompleted: boolean
-	chapterId: number
-	userId: number
+	chapterId: string
+	userId: string
 }
 
 export interface ProgressResponse {

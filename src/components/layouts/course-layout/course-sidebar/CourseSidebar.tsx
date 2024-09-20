@@ -4,17 +4,19 @@ import {
 } from '@/components/ui/common/scroll-area/ScrollArea'
 import { ProgressBar } from '@/components/ui/elements/progress-bar/ProgressBar'
 
-import type { ICourse } from '@/types/course.interface'
+import type { Course } from '@/types/course.interface'
 
 import styles from './CourseSidebar.module.scss'
 import { CourseSidebarItem } from './CourseSidebarItem'
 
 interface CourseSidebarProps {
-	course: ICourse
+	course: Course
 	progressCount: number
 }
 
 export function CourseSidebar({ course, progressCount }: CourseSidebarProps) {
+	console.log(progressCount)
+
 	return (
 		<div className={styles.sidebar}>
 			<div className={styles.course_info}>
@@ -24,15 +26,16 @@ export function CourseSidebar({ course, progressCount }: CourseSidebarProps) {
 				</div>
 			</div>
 			<ScrollArea className={styles.menu}>
-				{course.chapters.map(chapter => (
-					<CourseSidebarItem
-						key={chapter.id}
-						chapter={chapter}
-						course={course}
-						// isCompleted={!!chapter.logCourses?.[0]?.isCompleted}
-						isCompleted={false}
-					/>
-				))}
+				{course.chapters.map(chapter => {
+					return (
+						<CourseSidebarItem
+							key={chapter.id}
+							chapter={chapter}
+							course={course}
+							isCompleted={!!chapter.userProgress?.[0]?.isCompleted}
+						/>
+					)
+				})}
 				<ScrollBar />
 			</ScrollArea>
 		</div>

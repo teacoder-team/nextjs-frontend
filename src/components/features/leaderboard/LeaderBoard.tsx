@@ -29,7 +29,7 @@ export function LeaderBoard() {
 	const { user: currentUser } = useProfile()
 
 	const { data, isLoading } = useQuery({
-		queryKey: ['find top users by points'],
+		queryKey: ['top users by points'],
 		queryFn: () => userService.findTopUsersByPoints()
 	})
 
@@ -39,7 +39,7 @@ export function LeaderBoard() {
 		<div>
 			<Heading
 				title='Таблица лидеров'
-				description='Узнайте, кто заработал наибольшее количество очков за прохождение курсов и вдохновитесь их успехами.'
+				description='Узнайте, кто заработал наибольшее количество очков за прохождение курсов и вдохновитесь их успехами'
 			/>
 			<Table className='mt-3'>
 				<TableHeader>

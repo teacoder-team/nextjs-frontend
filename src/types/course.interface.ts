@@ -12,4 +12,5 @@ export interface Course extends Base {
 	isPublished: boolean
 	views: number
 	chapters: Chapter[]
+	progress: number
 }

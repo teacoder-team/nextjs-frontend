@@ -7,7 +7,7 @@ import { courseService } from '@/services/course.service'
 
 import { Course } from '../../../../components/features/course/Course'
 
-export const dynamic = 'force-static'
+export const revalidate = 60
 
 export async function generateStaticParams() {
 	const response = await courseService.findAll()
@@ -25,7 +25,7 @@ async function getCourse(params: { courseSlug: string }) {
 	try {
 		const course = await courseService.findBySlug(params.courseSlug)
 
-		return course
+		return { course }
 	} catch (error) {
 		return notFound()
 	}
@@ -36,7 +36,7 @@ export async function generateMetadata({
 }: {
 	params: { courseSlug: string }
 }): Promise<Metadata> {
-	const course = await getCourse(params)
+	const { course } = await getCourse(params)
 
 	return {
 		title: course.name,
@@ -75,7 +75,7 @@ export default async function CoursePage({
 }: {
 	params: { courseSlug: string }
 }) {
-	const course = await getCourse(params)
+	const { course } = await getCourse(params)
 
 	return <Course initialCourse={course} />
 }

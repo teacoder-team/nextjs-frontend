@@ -12,11 +12,6 @@ export const metadata: Metadata = {
 	...NO_INDEX_PAGE
 }
 
-/**
- * Компонент страницы, отображающий содержимое пользовательского соглашения.
- *
- * @returns {JSX.Element} Элемент страницы с пользовательским соглашением.
- */
 export default function AgreementPage() {
 	return (
 		<div className={styles.wrapper}>

@@ -3,31 +3,49 @@
 import { useQuery } from '@tanstack/react-query'
 import type { PropsWithChildren } from 'react'
 
-import userService from '@/services/user.service'
+import Loading from '@/app/loading'
 
-import type { ICourse } from '@/types/course.interface'
+import { chapterService } from '@/services/chapter.service'
+import { userService } from '@/services/user.service'
 
 import styles from './CourseLayout.module.scss'
 import { CourseNavbar } from './course-navbar/CourseNavbar'
 import { CourseSidebar } from './course-sidebar/CourseSidebar'
 
-interface CourseLayoutProps extends PropsWithChildren {
-	course: ICourse
+interface CourseLayoutProps {
+	chapterSlug: string
 }
 
-export function CourseLayout({ children, course }: CourseLayoutProps) {
-	const { data: progressCount } = useQuery({
-		queryKey: ['progress'],
-		queryFn: () => userService.findProgress(course.id)
+export function CourseLayout({
+	children,
+	chapterSlug
+}: PropsWithChildren<CourseLayoutProps>) {
+	const { data, isLoading } = useQuery({
+		queryKey: ['chapter by slug for course layout'],
+		queryFn: () => chapterService.findBySlug(chapterSlug)
 	})
+
+	const { data: progressCount, isLoading: isLoadingProgress } = useQuery({
+		queryKey: ['find user progress'],
+		queryFn: () => userService.findUserProgress(data?.chapter.course.id!)
+	})
+
+	if (isLoading || isLoadingProgress || !progressCount || !data)
+		return <Loading />
 
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.navbar}>
-				<CourseNavbar course={course} progressCount={progressCount} />
+				<CourseNavbar
+					course={data.chapter.course}
+					progressCount={progressCount || 52}
+				/>
 			</div>
 			<div className={styles.sidebar}>
-				<CourseSidebar course={course} progressCount={progressCount} />
+				<CourseSidebar
+					course={data.chapter.course}
+					progressCount={progressCount || 52}
+				/>
 			</div>
 			<main>{children}</main>
 		</div>
