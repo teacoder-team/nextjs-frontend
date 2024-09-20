@@ -1,5 +1,7 @@
 import { Chapter } from '@/components/features/course/chapter/Chapter'
 
+export const dynamic = 'force-dynamic'
+
 export default async function ChapterPage({
 	params
 }: {
