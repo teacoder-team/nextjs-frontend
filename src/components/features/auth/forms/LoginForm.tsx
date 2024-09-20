@@ -2,7 +2,6 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
@@ -22,7 +21,6 @@ import { authService } from '@/services/auth.service'
 
 import { UserRole } from '@/types/user.interface'
 
-import styles from '../Auth.module.scss'
 import { AuthWrapper } from '../AuthWrapper'
 
 import { type TypeLoginSchema, loginSchema } from '@/schemes/auth/login.schema'
@@ -91,15 +89,7 @@ export function LoginForm() {
 						name='password'
 						render={({ field }) => (
 							<FormItem>
-								<div className='flex items-center justify-between'>
-									<FormLabel>Пароль</FormLabel>
-									<Link
-										href='/auth/reset-password'
-										className={styles.recovery}
-									>
-										Забыли пароль?
-									</Link>
-								</div>
+								<FormLabel>Пароль</FormLabel>
 								<FormControl>
 									<Input
 										placeholder='******'
