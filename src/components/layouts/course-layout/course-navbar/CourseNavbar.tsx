@@ -20,7 +20,7 @@ export function CourseNavbar({ course, progressCount }: CourseNavbarProps) {
 		<div className={styles.navbar}>
 			<CourseMobileSidebar course={course} progressCount={progressCount} />
 			<div className={styles.header_menu}>
-				<Link href={`/projects/${course.slug}`}>
+				<Link href={`/courses/${course.slug}`}>
 					<Button variant='ghost'>
 						<LogOut className={styles.icon} />
 						Вернутся к курсу
