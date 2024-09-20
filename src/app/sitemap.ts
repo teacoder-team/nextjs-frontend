@@ -8,7 +8,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const courses = await courseService.findAll()
 
 	const courseEntries: MetadataRoute.Sitemap = courses.map(({ slug }) => ({
-		url: APP_URL + `/courses/${slug}`,
+		url: APP_URL + `/projects/${slug}`,
 		lastModified: new Date(),
 		changeFrequency: 'daily',
 		priority: 0.9

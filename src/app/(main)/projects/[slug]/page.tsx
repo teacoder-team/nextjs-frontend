@@ -21,9 +21,9 @@ export async function generateStaticParams() {
 	return paths
 }
 
-async function getCourse(params: { courseSlug: string }) {
+async function getCourse(params: { slug: string }) {
 	try {
-		const course = await courseService.findBySlug(params.courseSlug)
+		const course = await courseService.findBySlug(params.slug)
 
 		return { course }
 	} catch (error) {
@@ -34,7 +34,7 @@ async function getCourse(params: { courseSlug: string }) {
 export async function generateMetadata({
 	params
 }: {
-	params: { courseSlug: string }
+	params: { slug: string }
 }): Promise<Metadata> {
 	const { course } = await getCourse(params)
 
@@ -44,7 +44,7 @@ export async function generateMetadata({
 		openGraph: {
 			title: course.name,
 			description: course.description,
-			url: APP_URL + `/courses/${course.slug}`,
+			url: APP_URL + `/projects/${course.slug}`,
 			images: [
 				{
 					url: APP_URL + course.imageUrl,
@@ -73,7 +73,7 @@ export async function generateMetadata({
 export default async function CoursePage({
 	params
 }: {
-	params: { courseSlug: string }
+	params: { slug: string }
 }) {
 	const { course } = await getCourse(params)
 
