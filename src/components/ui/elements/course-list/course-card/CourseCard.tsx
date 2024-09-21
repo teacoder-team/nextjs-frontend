@@ -14,7 +14,7 @@ interface CourseCardProps {
 
 export function CourseCard({ course }: CourseCardProps) {
 	return (
-		<Link href={`/projects/${course.slug}`} className={styles.card}>
+		<Link href={`/courses/${course.slug}`} className={styles.card}>
 			<div className={styles.image}>
 				<Image src={course.imageUrl} alt={course.name} fill />
 			</div>
