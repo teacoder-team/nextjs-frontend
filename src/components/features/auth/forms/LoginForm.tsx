@@ -2,6 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
@@ -89,7 +90,15 @@ export function LoginForm() {
 						name='password'
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Пароль</FormLabel>
+								<div className='flex items-center justify-between'>
+									<FormLabel>Пароль</FormLabel>
+									<Link
+										href='/auth/reset-password'
+										className='ml-auto inline-block text-sm underline'
+									>
+										Забыли пароль?
+									</Link>
+								</div>
 								<FormControl>
 									<Input
 										placeholder='******'
