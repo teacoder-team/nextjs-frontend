@@ -1,7 +1,7 @@
 import { BookOpen } from 'lucide-react'
 import { FaYoutube } from 'react-icons/fa6'
 
-import { IChapter } from '@/types/chapter.interface'
+import { Chapter } from '@/types/chapter.interface'
 
 import { cn } from '@/utils/clsx'
 import { getChapterWord } from '@/utils/string/get-chapter-word'
@@ -9,7 +9,7 @@ import { getChapterWord } from '@/utils/string/get-chapter-word'
 import styles from './CourseBadge.module.scss'
 
 interface CourseBadgeProps {
-	chapters: IChapter[]
+	chapters: Chapter[]
 }
 
 /**
@@ -17,7 +17,7 @@ interface CourseBadgeProps {
  * Он использует иконку книги, если главы присутствуют, и иконку YouTube, если их нет.
  *
  * Свойства:
- * - chapters (IChapter[]): Массив глав курса, который определяет, какие иконки и текст отображать.
+ * - chapters (Chapter[]): Массив глав курса, который определяет, какие иконки и текст отображать.
  *
  * @returns {JSX.Element} Элемент значка курса с соответствующей иконкой и текстом.
  */
