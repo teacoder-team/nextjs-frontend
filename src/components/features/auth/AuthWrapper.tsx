@@ -13,7 +13,6 @@ import {
 } from '@/components/ui/common/card/Card'
 
 import styles from './Auth.module.scss'
-import { Social } from './social/Social'
 
 interface AuthWrapperProps {
 	heading: string
@@ -44,7 +43,7 @@ export function AuthWrapper({
 				<CardDescription>{description}</CardDescription>
 			</CardHeader>
 			<CardContent className={styles.content}>
-				{isShowSocial && <Social />}
+				{/* {isShowSocial && <Social />} */}
 				{children}
 			</CardContent>
 			<CardFooter>
