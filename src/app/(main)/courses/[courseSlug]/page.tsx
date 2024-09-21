@@ -8,6 +8,7 @@ import { courseService } from '@/services/course.service'
 import { Course } from '../../../../components/features/course/Course'
 
 export const revalidate = 60
+export const dynamic = 'force-static'
 
 export async function generateStaticParams() {
 	const response = await courseService.findAll()
