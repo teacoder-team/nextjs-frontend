@@ -15,8 +15,6 @@ interface CourseSidebarProps {
 }
 
 export function CourseSidebar({ course, progressCount }: CourseSidebarProps) {
-	console.log(progressCount)
-
 	return (
 		<div className={styles.sidebar}>
 			<div className={styles.course_info}>
