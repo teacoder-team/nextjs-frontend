@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import Cookies from 'js-cookie'
+import { useEffect } from 'react'
 
 import { userService } from '@/services/user.service'
 
@@ -13,7 +14,9 @@ export function useProfile() {
 		queryFn: () => userService.findProfile()
 	})
 
-	if (isError) return Cookies.remove('session')
+	useEffect(() => {
+		if (isError) return Cookies.remove('session')
+	}, [isError])
 
 	return { user, isLoadingProfile, isError }
 }
