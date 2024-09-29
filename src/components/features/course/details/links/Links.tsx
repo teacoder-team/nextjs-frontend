@@ -8,6 +8,8 @@ import { Skeleton } from '@/components/ui/common/skeleton/Skeleton'
 
 import type { Course } from '@/types/course.interface'
 
+import { getMediaSource } from '@/utils/string/get-media-source'
+
 import styles from './Links.module.scss'
 
 interface LinksProps {
@@ -55,7 +57,10 @@ export function Links({ course }: LinksProps) {
 						<span>Telegram</span>
 					</Link>
 					{data.session ? (
-						<Link href={course.repositoryUrl} title='Исходный код'>
+						<Link
+							href={getMediaSource(course.repositoryUrl)}
+							title='Исходный код'
+						>
 							<FaGithub />
 							<span>Исходный код</span>
 						</Link>
