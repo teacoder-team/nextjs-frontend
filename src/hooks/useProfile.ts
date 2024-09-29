@@ -15,8 +15,8 @@ export function useProfile() {
 	})
 
 	useEffect(() => {
-		if (isError) return Cookies.remove('session')
-	}, [isError])
+		if (!user) return Cookies.remove('session')
+	}, [isError, user, isLoadingProfile])
 
 	return { user, isLoadingProfile, isError }
 }
