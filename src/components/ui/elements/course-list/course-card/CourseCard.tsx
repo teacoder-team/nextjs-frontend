@@ -3,6 +3,8 @@ import Link from 'next/link'
 
 import type { Course } from '@/types/course.interface'
 
+import { getMediaSource } from '@/utils/string/get-media-source'
+
 import { ProgressBar } from '../../progress-bar/ProgressBar'
 
 import styles from './CourseCard.module.scss'
@@ -16,7 +18,11 @@ export function CourseCard({ course }: CourseCardProps) {
 	return (
 		<Link href={`/courses/${course.slug}`} className={styles.card}>
 			<div className={styles.image}>
-				<Image src={course.imageUrl} alt={course.name} fill />
+				<Image
+					src={getMediaSource(course.imageUrl)}
+					alt={course.name}
+					fill
+				/>
 			</div>
 			<div className={styles.info}>
 				<h2>{course.name}</h2>

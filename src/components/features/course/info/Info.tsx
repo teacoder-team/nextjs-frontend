@@ -4,6 +4,8 @@ import { CourseBadge } from '@/components/ui/elements/course-list/course-card/co
 
 import type { Course } from '@/types/course.interface'
 
+import { getMediaSource } from '@/utils/string/get-media-source'
+
 import styles from './Info.module.scss'
 
 interface InfoProps {
@@ -19,7 +21,12 @@ export function Info({ course }: InfoProps) {
 				) : (
 					<Image src={course.imageUrl} alt={course.name} fill priority />
 				)} */}
-				<Image src={course.imageUrl} alt={course.name} fill priority />
+				<Image
+					src={getMediaSource(course.imageUrl)}
+					alt={course.name}
+					fill
+					priority
+				/>
 			</div>
 			<div className={styles.info}>
 				<CourseBadge chapters={course.chapters} />

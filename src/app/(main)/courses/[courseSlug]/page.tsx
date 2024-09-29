@@ -5,6 +5,8 @@ import { APP_URL } from '@/config/constants'
 
 import { courseService } from '@/services/course.service'
 
+import { getMediaSource } from '@/utils/string/get-media-source'
+
 import { Course } from '../../../../components/features/course/Course'
 
 export const revalidate = 60
@@ -48,7 +50,7 @@ export async function generateMetadata({
 			url: APP_URL + `/courses/${course.slug}`,
 			images: [
 				{
-					url: APP_URL + course.imageUrl,
+					url: getMediaSource(course.imageUrl),
 					width: 1280,
 					height: 720,
 					alt: course.name
@@ -61,7 +63,7 @@ export async function generateMetadata({
 			description: course.description,
 			images: [
 				{
-					url: APP_URL + course.imageUrl,
+					url: getMediaSource(course.imageUrl),
 					width: 1280,
 					height: 720,
 					alt: course.name

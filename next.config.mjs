@@ -19,6 +19,10 @@ const nextConfig = {
 				protocol: 'https',
 				hostname: 'avatars.yandex.net',
 			},
+			{
+				hostname: '74d7d8c6-2a60-49b0-a328-1d69167763f0.selstorage.ru',
+				protocol: 'https'
+			}
 		],
 	},
 	async rewrites() {
