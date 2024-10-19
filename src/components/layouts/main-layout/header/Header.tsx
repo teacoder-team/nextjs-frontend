@@ -1,11 +1,11 @@
 'use client'
 
-import { Spinner } from '@nextui-org/spinner'
-import { useQuery } from '@tanstack/react-query'
 import { LogOut } from 'lucide-react'
 import Link from 'next/link'
 
 import { Button } from '@/components/ui/common/button/Button'
+
+import { useAuth } from '@/hooks/useAuth'
 
 import { MobileSidebar } from '../sidebar/MobileSidebar'
 
@@ -15,14 +15,7 @@ import { HeaderMenu } from './header-menu/HeaderMenu'
 import { SearchInput } from './search-input/SearchInput'
 
 export function Header() {
-	const { data, isLoading } = useQuery({
-		queryKey: ['get session from cookie'],
-		queryFn: async () => {
-			const response = await fetch('/api/cookie')
-			if (!response.ok) throw new Error('Network response was not ok')
-			return response.json()
-		}
-	})
+	const { isAuthenticated } = useAuth()
 
 	return (
 		<div className={styles.header}>
@@ -32,9 +25,7 @@ export function Header() {
 				<SearchInput />
 			</div>
 			<div className={styles.header_menu}>
-				{isLoading ? (
-					<Spinner size='md' color='default' />
-				) : data?.session ? (
+				{isAuthenticated ? (
 					<HeaderMenu />
 				) : (
 					<Link href='/auth/sign-in'>

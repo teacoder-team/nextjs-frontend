@@ -17,6 +17,8 @@ import {
 } from '@/components/ui/common/form-elements/form/Form'
 import { Input } from '@/components/ui/common/form-elements/input/Input'
 
+import { useAuth } from '@/hooks/useAuth'
+
 import { authService } from '@/services/auth.service'
 
 import { UserRole } from '@/types/user.interface'
@@ -30,11 +32,13 @@ import {
 
 export function RegisterForm() {
 	const router = useRouter()
+	const { auth } = useAuth()
 
 	const { mutate, isPending } = useMutation({
 		mutationKey: ['sign up'],
 		mutationFn: (data: TypeRegisterSchema) => authService.register(data),
 		onSuccess(data) {
+			auth()
 			toast.success('Вы успешно зарегистрировались')
 			router.push(data.user.role === UserRole.Admin ? '/manage' : '/account')
 		},

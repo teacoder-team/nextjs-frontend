@@ -1,22 +1,38 @@
 import { useQuery } from '@tanstack/react-query'
-import Cookies from 'js-cookie'
-import { useEffect } from 'react'
 
 import { userService } from '@/services/user.service'
 
+import { User } from '@/types/user.interface'
+
+import { useAuth } from './useAuth'
+
 export function useProfile() {
+	const { exit } = useAuth()
 	const {
 		data: user,
 		isLoading: isLoadingProfile,
-		isError
-	} = useQuery({
+		error
+	} = useQuery<User, Error>({
 		queryKey: ['profile'],
-		queryFn: () => userService.findProfile()
+		queryFn: async () => {
+			try {
+				return await userService.findProfile()
+			} catch (err) {
+				exit()
+				throw new Error('Ошибка при получении профиля')
+			}
+		}
 	})
 
-	useEffect(() => {
-		if (isError) return Cookies.remove('session')
-	}, [isError])
+	// useEffect(() => {
+	// 	if (error) {
+	// 		exit()
+	// 	}
+	// }, [error, exit])
 
-	return { user, isLoadingProfile, isError }
+	return {
+		user,
+		isLoadingProfile,
+		error
+	}
 }

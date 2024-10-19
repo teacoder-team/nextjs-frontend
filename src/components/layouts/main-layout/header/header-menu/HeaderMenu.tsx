@@ -18,14 +18,16 @@ import {
 	DropdownMenuTrigger
 } from '@/components/ui/common/dropdown-menu/DropdownMenu'
 
+import { useAuth } from '@/hooks/useAuth'
 import { useProfile } from '@/hooks/useProfile'
 
 import { LogoutButton } from './LogoutButton'
 
 export function HeaderMenu() {
+	const { isAuthenticated } = useAuth()
 	const { user, isLoadingProfile } = useProfile()
 
-	return isLoadingProfile || !user ? (
+	return !isAuthenticated || isLoadingProfile || !user ? (
 		<Spinner size='sm' color='default' />
 	) : (
 		<DropdownMenu>

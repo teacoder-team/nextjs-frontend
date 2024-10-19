@@ -18,6 +18,8 @@ import {
 } from '@/components/ui/common/form-elements/form/Form'
 import { Input } from '@/components/ui/common/form-elements/input/Input'
 
+import { useAuth } from '@/hooks/useAuth'
+
 import { authService } from '@/services/auth.service'
 
 import { UserRole } from '@/types/user.interface'
@@ -28,11 +30,13 @@ import { type TypeLoginSchema, loginSchema } from '@/schemes/auth/login.schema'
 
 export function LoginForm() {
 	const router = useRouter()
+	const { auth } = useAuth()
 
 	const { mutate, isPending } = useMutation({
 		mutationKey: ['sign in'],
 		mutationFn: (data: TypeLoginSchema) => authService.login(data),
 		onSuccess(data) {
+			auth()
 			toast.success('Успешный вход в аккаунт')
 			router.push(data.user.role === UserRole.Admin ? '/manage' : '/account')
 		},
